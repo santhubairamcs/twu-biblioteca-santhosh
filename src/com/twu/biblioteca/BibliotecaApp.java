@@ -22,6 +22,10 @@ public class BibliotecaApp {
         while (run) {
             view.outputConsole("Choose option\nListBooks");
             String userChoice = view.getUserInput();
+            if (userChoice.equals("ListBooks"))
+                view.listBooks(library.getBooks());
+            else
+                view.outputConsole("Select a valid option!\n");
         }
     }
 }

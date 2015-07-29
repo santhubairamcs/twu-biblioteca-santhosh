@@ -14,6 +14,10 @@ public class Library {
     }
 
     public boolean contains(String bookTitle) {
-        return true;
+        for(String[] book : books) {
+            if (book[0].equals(bookTitle))
+                return true;
+        }
+        return false;
     }
 }

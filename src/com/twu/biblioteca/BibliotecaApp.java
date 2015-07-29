@@ -3,11 +3,12 @@ package com.twu.biblioteca;
 import java.util.ArrayList;
 
 public class BibliotecaApp {
-    View view = new View();
+    View view ;
     Library library;
     ArrayList<String[]> books = new ArrayList<String[]>();
 
-    public BibliotecaApp(){
+    public BibliotecaApp(View view){
+        this.view = view;
         String[] book1 = {"A Suitable Boy", "Vikram Seth ", "1993"};
         String[] book2 = {"Cutting For Stone", "Abraham Verghese", "2009"};
         String[] book3 = {"The White Tiger", "Aravind Adiga", "2008"};
@@ -21,6 +22,5 @@ public class BibliotecaApp {
 
     public void start() {
         view.greetUser();
-        view.listBooks(library.listBooks());
     }
 }

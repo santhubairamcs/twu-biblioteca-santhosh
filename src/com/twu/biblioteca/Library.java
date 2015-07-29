@@ -12,4 +12,8 @@ public class Library {
     public ArrayList<String[]> getBooks() {
         return books;
     }
+
+    public boolean contains(String bookTitle) {
+        return true;
+    }
 }

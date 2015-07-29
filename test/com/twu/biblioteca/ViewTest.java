@@ -56,6 +56,15 @@ public class ViewTest {
         assertEquals("ListBooks\nQuit\n", outContent.toString());
     }
 
+    @Test
+    public void shouldKnowHowToShowString() {
+        View view = new View();
+
+        view.outputConsole("hello");
+
+        assertEquals("hello\n", outContent.toString());
+    }
+
     @After
     public void cleanUp() {
     }

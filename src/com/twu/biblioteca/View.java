@@ -1,6 +1,7 @@
 package com.twu.biblioteca;
 
 import java.util.ArrayList;
+import java.util.Scanner;
 
 
 public class View {
@@ -21,5 +22,14 @@ public class View {
     public void showMainMenu(){
         System.out.println("ListBooks");
         System.out.println("Quit");
+    }
+
+    public String getUserInput() {
+        Scanner input = new Scanner(System.in);
+        return input.nextLine();
+    }
+
+    public void outputConsole(String string) {
+        System.out.println(string);
     }
 }

@@ -17,6 +17,6 @@ public class Main {
         books.add(book4);
         View view = new View();
         BibliotecaApp bibliotecaApp = new BibliotecaApp(view , books);
-        bibliotecaApp.start();
+        bibliotecaApp.start(true);
     }
 }

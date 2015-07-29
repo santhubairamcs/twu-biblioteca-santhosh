@@ -13,8 +13,15 @@ public class BibliotecaApp {
         library = new Library(books);
     }
 
-    public void start() {
+    public void start(boolean runUntilQuit) {
         view.greetUser();
-        view.listBooks(library.getBooks());
+        menuLoop(runUntilQuit);
+    }
+
+    private void menuLoop(boolean run) {
+        while (run) {
+            view.outputConsole("Choose option\nListBooks");
+            String userChoice = view.getUserInput();
+        }
     }
 }

@@ -44,7 +44,16 @@ public class ViewTest {
         ArrayList<String[]> books = new ArrayList<String[]>();
         books.add(book);
         library = new Library(books);
-        assertEquals(books, library.listBooks());
+        assertEquals(books, library.getBooks());
+    }
+
+    @Test
+    public void shouldKnowHowToShowMainMenu() {
+        View view = new View();
+
+        view.showMainMenu();
+
+        assertEquals("ListBooks\nQuit\n", outContent.toString());
     }
 
     @After

@@ -44,7 +44,7 @@ public class ViewTest {
         ArrayList<String[]> books = new ArrayList<String[]>();
         books.add(book);
         library = new Library(books);
-        assertEquals(books, library.getBooks());
+        assertEquals(books, library.listBooks());
     }
 
     @After

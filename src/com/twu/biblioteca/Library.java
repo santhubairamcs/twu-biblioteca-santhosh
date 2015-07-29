@@ -9,7 +9,7 @@ public class Library {
         this.books = books;
     }
 
-    public ArrayList<String[]> getBooks() {
+    public ArrayList<String[]> listBooks() {
         return books;
     }
 }

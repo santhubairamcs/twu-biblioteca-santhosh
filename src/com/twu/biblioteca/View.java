@@ -12,7 +12,7 @@ public class View {
     public void displayBook(String[] book) {
         System.out.println(book[0] + " - " + book[1] + " - " + book[2]);
     }
-    public void displayBooks(ArrayList<String[]> books) {
+    public void listBooks(ArrayList<String[]> books) {
         for (int i = 0; i < books.size() ;i++)
             displayBook(books.get(i));
     }

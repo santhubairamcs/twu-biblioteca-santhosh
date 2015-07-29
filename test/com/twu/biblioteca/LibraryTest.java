@@ -15,7 +15,7 @@ public class LibraryTest {
         Library library = new Library(books);
         books.add(book);
 
-        ArrayList<String[]> booksFromLibrary = library.listBooks();
+        ArrayList<String[]> booksFromLibrary = library.getBooks();
 
         for(int i = 0;i < books.size(); i++)
             assertArrayEquals(books.get(i), booksFromLibrary.get(i));

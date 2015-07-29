@@ -10,7 +10,7 @@ public class View {
     }
 
     public void displayBook(String[] book) {
-        System.out.println(book[0] + " - " + book[1] + " - " + book[2]);
+        System.out.format("%-30s%-20s%-10s\n", book[0], book[1], book[2]);
     }
 
     public void listBooks(ArrayList<String[]> books) {

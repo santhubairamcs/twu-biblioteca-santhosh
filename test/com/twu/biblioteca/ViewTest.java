@@ -34,7 +34,7 @@ public class ViewTest {
         String book[] = {"A Suitable Boy", "Vikram Seth", "1993"};
         view.displayBook(book);
 
-        assertEquals("A Suitable Boy - Vikram Seth - 1993\n", outContent.toString());
+        assertEquals("A Suitable Boy                Vikram Seth         1993      \n", outContent.toString());
     }
 
     @Test

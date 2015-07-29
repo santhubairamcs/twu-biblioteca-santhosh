@@ -18,14 +18,16 @@ public class BibliotecaApp {
         menuLoop(runUntilQuit);
     }
 
-    private void menuLoop(boolean run) {
-        while (run) {
-            view.outputConsole("Choose option\nListBooks");
+    private void menuLoop(boolean runUntilQuit) {
+        while (runUntilQuit) {
+            view.outputConsole("\nChoose option\n\tListBooks\n\tQuit");
             String userChoice = view.getUserInput();
             if (userChoice.equals("ListBooks"))
                 view.listBooks(library.getBooks());
+            else if (userChoice.equals("Quit"))
+                System.exit(0);
             else
-                view.outputConsole("Select a valid option!\n");
+                view.outputConsole("Select a valid option!");
         }
     }
 }

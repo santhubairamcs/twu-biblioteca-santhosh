@@ -41,4 +41,16 @@ public class LibraryTest {
 
         assertEquals(false, library.contains("3 Mistakes of My Life"));
     }
+
+    @Test
+    public void shouldKnowsThatTheBookIsRemovedFromTheLibrary() {
+        String[] book = {"A Suitable Boy", "Vikram Seth ", "1993"};
+        ArrayList<String[]> books = new ArrayList<String[]>();
+        Library library = new Library(books);
+        books.add(book);
+
+        library.remove(book);
+
+        assertEquals(false, library.contains("A Suitable Boy"));
+    }
 }

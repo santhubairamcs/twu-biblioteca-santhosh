@@ -20,4 +20,8 @@ public class Library {
         }
         return false;
     }
+
+    public void remove(String[] book) {
+        books.remove(book);
+    }
 }

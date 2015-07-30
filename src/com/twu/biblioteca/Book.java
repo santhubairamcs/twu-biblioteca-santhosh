@@ -39,4 +39,12 @@ public class Book {
         }
         return false;
     }
+
+    public boolean checkIn() {
+        if (!this.available) {
+            this.available = true;
+            return this.available;
+        }
+        return false;
+    }
 }

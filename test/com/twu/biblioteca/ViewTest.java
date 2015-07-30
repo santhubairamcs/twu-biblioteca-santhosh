@@ -31,7 +31,7 @@ public class ViewTest {
     public void shouldKnowsHowToShowOutputBook() {
         View view = new View();
 
-        String book[] = {"A Suitable Boy", "Vikram Seth", "1993"};
+        Book book = new Book("11111", "A Suitable Boy", "Vikram Seth", 1993, true);
         view.displayBook(book);
 
         assertEquals("A Suitable Boy                Vikram Seth         1993      \n", outContent.toString());
@@ -40,8 +40,8 @@ public class ViewTest {
     @Test
     public void shouldKnowsHowToShowOutputBooksList() {
         Library library;
-        String[] book = {"A Suitable Boy", "Vikram Seth ", "1993"};
-        ArrayList<String[]> books = new ArrayList<String[]>();
+        Book book = new Book("11111", "A Suitable Boy", "Vikram Seth", 1993, true);
+        ArrayList<Book> books = new ArrayList<Book>();
         books.add(book);
         library = new Library(books);
         assertEquals(books, library.getBooks());

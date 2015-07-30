@@ -10,11 +10,11 @@ public class View {
         System.out.println("Welcome to Biblioteca");
     }
 
-    public void displayBook(String[] book) {
-        System.out.format("%-30s%-20s%-10s\n", book[0], book[1], book[2]);
+    public void displayBook(Book book) {
+        System.out.format("%-30s%-20s%-10s\n", book.getTitle(), book.getAuthor(), book.getYearOfPublish());
     }
 
-    public void listBooks(ArrayList<String[]> books) {
+    public void listBooks(ArrayList<Book> books) {
         for (int i = 0; i < books.size() ;i++)
             displayBook(books.get(i));
     }

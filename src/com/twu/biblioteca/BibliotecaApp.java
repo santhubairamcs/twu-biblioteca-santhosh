@@ -5,10 +5,10 @@ import java.util.ArrayList;
 public class BibliotecaApp {
     View view ;
     Library library;
-    ArrayList<String[]> books;
+    ArrayList<Book> books;
     CheckOut checkout;
 
-    public BibliotecaApp(View view, ArrayList<String[]> books){
+    public BibliotecaApp(View view, ArrayList<Book> books){
         this.view = view;
         this.books = books;
         library = new Library(books);

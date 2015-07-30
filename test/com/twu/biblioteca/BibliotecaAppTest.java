@@ -12,7 +12,7 @@ public class BibliotecaAppTest {
     @Test
     public void shouldKnowsWhetherGettingFunctionCalledUsingMock() {
         View viewMock = mock(View.class);
-        BibliotecaApp biblioteca = new BibliotecaApp(viewMock,new ArrayList<String[]>());
+        BibliotecaApp biblioteca = new BibliotecaApp(viewMock,new ArrayList<Book>());
 
         biblioteca.start(false);
 

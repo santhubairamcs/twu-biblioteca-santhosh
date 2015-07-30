@@ -1,7 +1,6 @@
 package com.twu.biblioteca;
 
 import org.junit.Test;
-
 import java.util.ArrayList;
 
 import static org.mockito.Mockito.*;
@@ -18,6 +17,4 @@ public class BibliotecaAppTest {
 
         verify(viewMock, atLeast(1)).greetUser();
     }
-
-
 }

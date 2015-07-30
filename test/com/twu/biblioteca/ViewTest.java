@@ -1,6 +1,5 @@
 package com.twu.biblioteca;
 
-import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
 import java.io.ByteArrayOutputStream;
@@ -30,8 +29,8 @@ public class ViewTest {
     @Test
     public void shouldKnowsHowToShowOutputBook() {
         View view = new View();
-
         Book book = new Book("11111", "A Suitable Boy", "Vikram Seth", 1993, true);
+
         view.displayBook(book);
 
         assertEquals("A Suitable Boy                Vikram Seth         1993      \n", outContent.toString());
@@ -39,11 +38,11 @@ public class ViewTest {
 
     @Test
     public void shouldKnowsHowToShowOutputBooksList() {
-        Library library;
         Book book = new Book("11111", "A Suitable Boy", "Vikram Seth", 1993, true);
         ArrayList<Book> books = new ArrayList<Book>();
         books.add(book);
-        library = new Library(books);
+        Library library = new Library(books);
+
         assertEquals(books, library.getBooks());
     }
 
@@ -63,9 +62,5 @@ public class ViewTest {
         view.outputConsole("hello");
 
         assertEquals("hello\n", outContent.toString());
-    }
-
-    @After
-    public void cleanUp() {
     }
 }

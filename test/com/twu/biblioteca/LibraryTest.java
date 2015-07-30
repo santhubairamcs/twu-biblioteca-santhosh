@@ -23,7 +23,7 @@ public class LibraryTest {
     }
 
     @Test
-    public void shouldKnowsHowBookIsInLibrary() {
+    public void shouldKnowsThatTheBookIsInLibrary() {
         String[] book = {"A Suitable Boy", "Vikram Seth ", "1993"};
         ArrayList<String[]> books = new ArrayList<String[]>();
         Library library = new Library(books);
@@ -33,7 +33,7 @@ public class LibraryTest {
     }
 
     @Test
-    public void shouldKnowsHowBookIsNotInLibrary() {
+    public void shouldKnowsThatTheBookIsNotInLibrary() {
         String[] book = {"A Suitable Boy", "Vikram Seth ", "1993"};
         ArrayList<String[]> books = new ArrayList<String[]>();
         Library library = new Library(books);
@@ -49,8 +49,19 @@ public class LibraryTest {
         Library library = new Library(books);
         books.add(book);
 
-        library.remove(book);
+        assertEquals(true, library.remove("A Suitable Boy"));
+    }
 
-        assertEquals(false, library.contains("A Suitable Boy"));
+    @Test
+    public void shouldKnowsThatTheBookIsNotRemovedFromTheLibrary() {
+        String[] book1 = {"A Suitable Boy", "Vikram Seth ", "1993"};
+        String[] book2 = {"Cutting For Stone", "Abraham Verghese", "2009"};
+
+        ArrayList<String[]> books = new ArrayList<String[]>();
+        Library library = new Library(books);
+        books.add(book1);
+        books.add(book2);
+
+        assertEquals(false, library.remove("3 Mistakes of My Life"));
     }
 }

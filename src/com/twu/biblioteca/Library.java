@@ -21,7 +21,11 @@ public class Library {
         return false;
     }
 
-    public void remove(String[] book) {
-        books.remove(book);
+    public boolean remove(String bookTitle) {
+        for(String[] book : books) {
+            if (book[0].equals(bookTitle))
+                return books.remove(book);
+        }
+        return false;
     }
 }

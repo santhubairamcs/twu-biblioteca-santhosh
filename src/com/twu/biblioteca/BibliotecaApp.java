@@ -8,12 +8,13 @@ public class BibliotecaApp {
     Library library;
     ArrayList<Book> books;
     CheckOut checkout;
-
+    CheckIn checkin;
     public BibliotecaApp(View view, ArrayList<Book> books){
         this.view = view;
         this.books = books;
         library = new Library(books);
         checkout = new CheckOut(library);
+        checkin = new CheckIn(library);
     }
 
     public void start(boolean runUntilQuit) {
@@ -23,14 +24,16 @@ public class BibliotecaApp {
 
     private void menuLoop(boolean runUntilQuit) {
         while (runUntilQuit) {
-            view.outputConsole("\nChoose option\n\tListBooks\n\tCheckout\n\tQuit");
+            view.outputConsole("\nChoose option\n\tListBooks\n\tCheckOut\n\tCheckIn\n\tQuit");
             String userChoice = view.getUserInput();
             if (userChoice.equals("ListBooks"))
                 view.listBooks(library.getBooks());
             else if (userChoice.equals("Quit"))
                 System.exit(0);
-            else if(userChoice.equals("Checkout"))
+            else if(userChoice.equals("CheckOut"))
                 view.outputConsole(checkout.checkOut(view.getUserInput()));
+            else if (userChoice.equals("CheckIn"))
+                view.outputConsole(checkin.checkIn(view.getUserInput()));
             else
                 view.outputConsole("Select a valid option!");
         }

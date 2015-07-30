@@ -15,8 +15,12 @@ public class View {
     }
 
     public void listBooks(ArrayList<Book> books) {
-        for (int i = 0; i < books.size() ;i++)
-            displayBook(books.get(i));
+        Book book;
+        for (int i = 0; i < books.size() ;i++) {
+            book = books.get(i);
+            if (book.isAvailable())
+                displayBook(books.get(i));
+        }
     }
 
     public void showMainMenu(){

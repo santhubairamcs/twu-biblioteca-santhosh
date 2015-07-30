@@ -23,8 +23,9 @@ public class Library {
 
     public boolean remove(String bookTitle) {
         for(Book book : books) {
-            if (bookTitle.equals(book.getTitle()))
-                return books.remove(book);
+            if (bookTitle.equals(book.getTitle())) {
+                return book.checkout();
+            }
         }
         return false;
     }

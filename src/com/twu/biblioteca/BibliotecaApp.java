@@ -6,11 +6,13 @@ public class BibliotecaApp {
     View view ;
     Library library;
     ArrayList<String[]> books;
+    CheckOut checkout;
 
     public BibliotecaApp(View view, ArrayList<String[]> books){
         this.view = view;
         this.books = books;
         library = new Library(books);
+        checkout = new CheckOut(library);
     }
 
     public void start(boolean runUntilQuit) {
@@ -26,6 +28,8 @@ public class BibliotecaApp {
                 view.listBooks(library.getBooks());
             else if (userChoice.equals("Quit"))
                 System.exit(0);
+            else if(userChoice.equals("Checkout"))
+                checkout.checkOut(view.getUserInput());
             else
                 view.outputConsole("Select a valid option!");
         }

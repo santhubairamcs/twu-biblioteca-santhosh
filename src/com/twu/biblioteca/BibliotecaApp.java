@@ -22,7 +22,7 @@ public class BibliotecaApp {
 
     private void menuLoop(boolean runUntilQuit) {
         while (runUntilQuit) {
-            view.outputConsole("\nChoose option\n\tListBooks\n\tQuit");
+            view.outputConsole("\nChoose option\n\tListBooks\n\tCheckout\n\tQuit");
             String userChoice = view.getUserInput();
             if (userChoice.equals("ListBooks"))
                 view.listBooks(library.getBooks());

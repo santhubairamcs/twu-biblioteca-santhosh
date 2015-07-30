@@ -18,6 +18,6 @@ public class CheckOutTest {
 
         checkout.checkOut("A Suitable Boy");
 
-        assertEquals(false, library.contains("A Suitable Boy"));
+        assertEquals(true, library.contains("A Suitable Boy"));
     }
 }

@@ -62,4 +62,18 @@ public class LibraryTest {
 
         assertEquals(false, library.remove("3 Mistakes of My Life"));
     }
+
+    @Test
+    public void shouldKnowsThatTheBookIsCheckedInTheLibrary() {
+        ArrayList<Book> books = new ArrayList<Book>();
+        Book book1 = new Book("11111", "A Suitable Boy", "Vikram Seth ", 1993, true);
+        Book book2 = new Book("22222", "Cutting For Stone", "Abraham Verghese", 2009, false);
+        books.add(book1);
+        books.add(book2);
+        Library library = new Library(books);
+
+        library.add("Cutting For Stone");
+
+        assertEquals(true, book2.isAvailable());
+    }
 }

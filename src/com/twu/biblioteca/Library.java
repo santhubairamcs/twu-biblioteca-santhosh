@@ -30,4 +30,13 @@ public class Library {
         }
         return false;
     }
+
+    public boolean add(String bookTitle) {
+        for(Book book : books) {
+            if (bookTitle.equals(book.getTitle())) {
+                return book.checkIn();
+            }
+        }
+        return false;
+    }
 }

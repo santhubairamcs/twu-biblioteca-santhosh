@@ -2,8 +2,8 @@ package com.twu.biblioteca;
 
 import org.junit.Before;
 import org.junit.Test;
-import java.io.ByteArrayOutputStream;
-import java.io.PrintStream;
+
+import java.io.*;
 import java.util.ArrayList;
 
 import static org.junit.Assert.assertEquals;
@@ -18,7 +18,7 @@ public class ViewTest {
     }
 
     @Test
-    public void out() {
+    public void shouldKnowsHowToShowWelcomeMessage() {
         View view = new View();
 
         view.greetUser();
@@ -47,20 +47,29 @@ public class ViewTest {
     }
 
     @Test
-    public void shouldKnowHowToShowMainMenu() {
-        View view = new View();
-
-        view.showMainMenu();
-
-        assertEquals("ListBooks\nQuit\n", outContent.toString());
-    }
-
-    @Test
     public void shouldKnowHowToShowString() {
         View view = new View();
 
         view.outputConsole("hello");
 
         assertEquals("hello\n", outContent.toString());
+    }
+
+    @Test
+    public void shouldKnowsHowToTakeInputFromConsole() {
+        String testString = "test";
+        InputStream stream = new ByteArrayInputStream(testString.getBytes());
+        BufferedReader reader = new BufferedReader(new InputStreamReader(stream));
+        String inputString = "";
+        try {
+            inputString = reader.readLine();
+        }
+        catch (IOException ex){
+            ;
+        }
+
+        assertEquals("test", inputString);
+
+
     }
 }

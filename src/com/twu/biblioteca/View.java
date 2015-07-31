@@ -1,7 +1,9 @@
 package com.twu.biblioteca;
 
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
 import java.util.ArrayList;
-import java.util.Scanner;
 
 
 public class View {
@@ -23,14 +25,16 @@ public class View {
         }
     }
 
-    public void showMainMenu(){
-        System.out.println("ListBooks");
-        System.out.println("Quit");
-    }
-
     public String getUserInput() {
-        Scanner input = new Scanner(System.in);
-        return input.nextLine();
+        BufferedReader input = new BufferedReader (new InputStreamReader(System.in));
+        String inputFromConsole = "";
+        try {
+            inputFromConsole = input.readLine();
+        }
+        catch (IOException ex) {
+
+        }
+        return inputFromConsole;
     }
 
     public void outputConsole(String string) {

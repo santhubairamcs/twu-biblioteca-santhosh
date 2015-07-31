@@ -8,15 +8,10 @@ public class CheckIn {
         this.library = library;
     }
 
-    public String checkIn(String bookTitle) {
+    public Book checkIn(String bookTitle) {
         if(library.contains(bookTitle)) {
-            if(library.add(bookTitle)) {
-                return "Thank you for returning the book.";
-            }
-            else {
-                return "CheckIn unsuccessful.";
-            }
+            return library.add(bookTitle);
         }
-        return "That is not a valid book to return.";
+        return null;
     }
 }

@@ -32,19 +32,19 @@ public class Book {
         return available;
     }
 
-    public boolean checkout() {
+    public Book checkout() {
         if(this.available) {
             this.available = false;
-            return true;
+            return this;
         }
-        return false;
+        return null;
     }
 
-    public boolean checkIn() {
+    public Book checkIn() {
         if (!this.available) {
             this.available = true;
-            return this.available;
+            return this;
         }
-        return false;
+        return null;
     }
 }

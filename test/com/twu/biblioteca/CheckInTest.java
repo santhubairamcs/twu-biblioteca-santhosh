@@ -18,7 +18,7 @@ public class CheckInTest {
         Library library = new Library(books);
         CheckIn checkin = new CheckIn(library);
 
-        assertEquals("Thank you for returning the book.", checkin.checkIn("Train to Pakistan"));
+        assertEquals(book2, checkin.checkIn("Train to Pakistan"));
     }
 
     @Test
@@ -31,6 +31,6 @@ public class CheckInTest {
         Library library = new Library(books);
         CheckIn checkin = new CheckIn(library);
 
-        assertEquals("That is not a valid book to return.", checkin.checkIn("Train to China"));
+        assertEquals(null, checkin.checkIn("Train to China"));
     }
 }

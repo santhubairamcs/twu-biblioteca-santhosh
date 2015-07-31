@@ -31,9 +31,9 @@ public class BibliotecaApp {
             else if (userChoice.equals("Quit"))
                 System.exit(0);
             else if(userChoice.equals("CheckOut"))
-                view.outputConsole(checkout.checkOut(view.getUserInput()));
+                view.displayBook(checkout.checkOut(view.getUserInput()));
             else if (userChoice.equals("CheckIn"))
-                view.outputConsole(checkin.checkIn(view.getUserInput()));
+                view.displayBook(checkin.checkIn(view.getUserInput()));
             else
                 view.outputConsole("Select a valid option!");
         }

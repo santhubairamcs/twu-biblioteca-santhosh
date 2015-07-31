@@ -11,13 +11,11 @@ public class CheckOutTest {
     @Test
     public void shouldKnowThatTheBookIsInLibraryIsCheckout() {
         ArrayList<Book> books = new ArrayList<Book>();
-        Book book1 = new Book("11111", "A Suitable Boy", "Vikram Seth ", 1993, true);
-        books.add(book1);
+        Book book = new Book("11111", "A Suitable Boy", "Vikram Seth ", 1993, true);
+        books.add(book);
         Library library = new Library(books);
         CheckOut checkout = new CheckOut(library);
 
-        checkout.checkOut("A Suitable Boy");
-
-        assertEquals(true, library.contains("A Suitable Boy"));
+        assertEquals(book, checkout.checkOut("A Suitable Boy"));
     }
 }

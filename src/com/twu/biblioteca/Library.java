@@ -22,21 +22,21 @@ public class Library {
         return false;
     }
 
-    public boolean remove(String bookTitle) {
+    public Book remove(String bookTitle) {
         for(Book book : books) {
             if (bookTitle.equals(book.getTitle())) {
                 return book.checkout();
             }
         }
-        return false;
+        return null;
     }
 
-    public boolean add(String bookTitle) {
+    public Book add(String bookTitle) {
         for(Book book : books) {
             if (bookTitle.equals(book.getTitle())) {
                 return book.checkIn();
             }
         }
-        return false;
+        return null;
     }
 }

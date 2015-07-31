@@ -48,7 +48,7 @@ public class LibraryTest {
         books.add(book);
         Library library = new Library(books);
 
-        assertEquals(true, library.remove("A Suitable Boy"));
+        assertEquals(book, library.remove("A Suitable Boy"));
     }
 
     @Test
@@ -60,7 +60,7 @@ public class LibraryTest {
         books.add(book2);
         Library library = new Library(books);
 
-        assertEquals(false, library.remove("3 Mistakes of My Life"));
+        assertEquals(null, library.remove("3 Mistakes of My Life"));
     }
 
     @Test

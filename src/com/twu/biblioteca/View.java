@@ -54,6 +54,9 @@ public class View {
     }
 
     public void displayCheckInStatus(Book book) {
-        System.out.println("Thank you for returning the book");
+        if (book != null)
+            System.out.println("Thank you for returning the book");
+        else
+            System.out.println("That is not a valid book to return");
     }
 }

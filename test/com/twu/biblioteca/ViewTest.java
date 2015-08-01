@@ -94,10 +94,20 @@ public class ViewTest {
     @Test
     public void shouldKnowsHowToDisplaySuccessfulCheckInStatus() {
         View view = new View();
-        Book book = null;
+        Book book = new Book("11111", "A Suitable Boy", "Vikram Seth", 1993, true);
 
         view.displayCheckInStatus(book);
 
         assertEquals("Thank you for returning the book\n", outContent.toString());
+    }
+
+    @Test
+    public void shouldKnowsHowToDisplayUnsuccessfulCheckInStatus() {
+        View view = new View();
+        Book book = null;
+
+        view.displayCheckInStatus(book);
+
+        assertEquals("That is not a valid book to return\n", outContent.toString());
     }
 }

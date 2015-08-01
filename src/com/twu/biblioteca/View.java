@@ -52,4 +52,8 @@ public class View {
         else
             System.out.println("Thank you! Enjoy the book");
     }
+
+    public void displayCheckInStatus(Book book) {
+        System.out.println("Thank you for returning the book");
+    }
 }

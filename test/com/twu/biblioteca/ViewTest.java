@@ -90,4 +90,14 @@ public class ViewTest {
 
         assertEquals("Thank you! Enjoy the book\n", outContent.toString());
     }
+
+    @Test
+    public void shouldKnowsHowToDisplaySuccessfulCheckInStatus() {
+        View view = new View();
+        Book book = null;
+
+        view.displayCheckInStatus(book);
+
+        assertEquals("Thank you for returning the book\n", outContent.toString());
+    }
 }

@@ -70,4 +70,14 @@ public class ViewTest {
 
         assertEquals("test", inputString);
     }
+
+    @Test
+    public void shouldKnowsHowToDisplaySuccessfulCheckOutStatus() {
+        View view = new View();
+        Book book = new Book("11111", "A Suitable Boy", "Vikram Seth", 1993, true);
+
+        view.displayCheckOutStatus(book);
+
+        assertEquals("Thank you! Enjoy the book\n", outContent.toString());
+    }
 }

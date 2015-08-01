@@ -18,11 +18,16 @@ public class View {
 
     public void listBooks(ArrayList<Book> books) {
         Book book;
+        displayBookHeader();
         for (int i = 0; i < books.size() ;i++) {
             book = books.get(i);
             if (book.isAvailable())
                 displayBook(books.get(i));
         }
+    }
+
+    private void displayBookHeader() {
+        System.out.format("%-30s%-20s%-10s\n", "Title", "Author", "YearOfPublish");
     }
 
     public String getUserInput() {
@@ -39,5 +44,9 @@ public class View {
 
     public void outputConsole(String string) {
         System.out.println(string);
+    }
+
+    public void displayCheckOutStatus(Book book) {
+        System.out.println("Thank you! Enjoy the book");
     }
 }

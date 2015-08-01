@@ -24,8 +24,8 @@ public class Library {
 
     public Book checkOut(String bookTitle) {
         for(Book book : books) {
-            if (bookTitle.equals(book.getTitle())) {
-                return book.checkout();
+            if (book.hasTitle(bookTitle)) {
+                return book.makeUnavailable();
             }
         }
         return null;
@@ -33,8 +33,8 @@ public class Library {
 
     public Book checkIn(String bookTitle) {
         for(Book book : books) {
-            if (bookTitle.equals(book.getTitle())) {
-                return book.checkIn();
+            if (book.hasTitle(bookTitle)) {
+                return book.makeAvailable();
             }
         }
         return null;

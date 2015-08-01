@@ -32,7 +32,7 @@ public class Book {
         return available;
     }
 
-    public Book checkout() {
+    public Book makeUnavailable() {
         if(this.available) {
             this.available = false;
             return this;
@@ -40,11 +40,15 @@ public class Book {
         return null;
     }
 
-    public Book checkIn() {
+    public Book makeAvailable() {
         if (!this.available) {
             this.available = true;
             return this;
         }
         return null;
+    }
+
+    public boolean hasTitle(String bookTitle) {
+        return bookTitle.equals(this.getTitle());
     }
 }

@@ -18,13 +18,14 @@
 
     <target name="runjunit" depends="compile">
         <junit haltonfailure="true" printsummary="true" showoutput="yes">
-            <test name="com.twu.biblioteca.LibraryTest"/>
+            <test name="com.twu.biblioteca.BibliotecaAppTest"/>
             <test name="com.twu.biblioteca.ViewTest"/>
+            <test name="com.twu.biblioteca.LibraryTest"/>
+            <test name="com.twu.biblioteca.BookTest"/>
             <classpath>
                 <pathelement location="out"/>
                 <path refid="classpath"/>
             </classpath>
-            <formatter type="plain" usefile="false"/>
         </junit>
     </target>
 

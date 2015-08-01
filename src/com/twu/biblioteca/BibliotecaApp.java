@@ -1,7 +1,5 @@
 package com.twu.biblioteca;
 
-import java.util.ArrayList;
-
 
 public class BibliotecaApp {
     View view ;
@@ -29,11 +27,13 @@ public class BibliotecaApp {
             }
             else if(userChoice.equals("CheckOut")) {
                 view.outputConsole("Enter book name: ");
-                view.displayCheckOutStatus(library.checkOut(view.getUserInput()));
+                String book = view.getUserInput();
+                view.displayCheckOutStatus(library.checkOut(book));
             }
             else if (userChoice.equals("CheckIn")) {
                 view.outputConsole("Enter book name: ");
-                view.displayCheckInStatus(library.checkIn(view.getUserInput()));
+                String book = view.getUserInput();
+                view.displayCheckInStatus(library.checkIn(book));
             }
             else
                 view.outputConsole("Select a valid option!");

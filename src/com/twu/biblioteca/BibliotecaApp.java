@@ -24,16 +24,23 @@ public class BibliotecaApp {
 
     private void menuLoop(boolean runUntilQuit) {
         while (runUntilQuit) {
-            view.outputConsole("\nChoose option\n\tListBooks\n\tCheckOut\n\tCheckIn\n\tQuit");
+            view.outputConsole("\nChoose option\n\tListBooks\n\tCheckOut\n\tCheckIn\n\tQuit\n");
+            view.outputConsole("Enter your choice: ");
             String userChoice = view.getUserInput();
-            if (userChoice.equals("ListBooks"))
+            if (userChoice.equals("ListBooks")) {
                 view.listBooks(library.getBooks());
-            else if (userChoice.equals("Quit"))
+            }
+            else if (userChoice.equals("Quit")) {
                 System.exit(0);
-            else if(userChoice.equals("CheckOut"))
-                view.displayBook(checkout.checkOut(view.getUserInput()));
-            else if (userChoice.equals("CheckIn"))
-                view.displayBook(checkin.checkIn(view.getUserInput()));
+            }
+            else if(userChoice.equals("CheckOut")) {
+                view.outputConsole("Enter book name: ");
+                view.displayCheckOutStatus(checkout.checkOut(view.getUserInput()));
+            }
+            else if (userChoice.equals("CheckIn")) {
+                view.outputConsole("Enter book name: ");
+                view.displayCheckInStatus(checkin.checkIn(view.getUserInput()));
+            }
             else
                 view.outputConsole("Select a valid option!");
         }

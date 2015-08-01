@@ -6,15 +6,9 @@ import java.util.ArrayList;
 public class BibliotecaApp {
     View view ;
     Library library;
-    ArrayList<Book> books;
-    CheckOut checkout;
-    CheckIn checkin;
-    public BibliotecaApp(View view, ArrayList<Book> books){
+    public BibliotecaApp(View view, Library library){
         this.view = view;
-        this.books = books;
-        library = new Library(books);
-        checkout = new CheckOut(library);
-        checkin = new CheckIn(library);
+        this.library = library;
     }
 
     public void start(boolean runUntilQuit) {
@@ -35,11 +29,11 @@ public class BibliotecaApp {
             }
             else if(userChoice.equals("CheckOut")) {
                 view.outputConsole("Enter book name: ");
-                view.displayCheckOutStatus(checkout.checkOut(view.getUserInput()));
+                view.displayCheckOutStatus(library.checkOut(view.getUserInput()));
             }
             else if (userChoice.equals("CheckIn")) {
                 view.outputConsole("Enter book name: ");
-                view.displayCheckInStatus(checkin.checkIn(view.getUserInput()));
+                view.displayCheckInStatus(library.checkIn(view.getUserInput()));
             }
             else
                 view.outputConsole("Select a valid option!");

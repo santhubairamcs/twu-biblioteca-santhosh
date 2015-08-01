@@ -22,7 +22,7 @@ public class Library {
         return false;
     }
 
-    public Book remove(String bookTitle) {
+    public Book checkOut(String bookTitle) {
         for(Book book : books) {
             if (bookTitle.equals(book.getTitle())) {
                 return book.checkout();
@@ -31,7 +31,7 @@ public class Library {
         return null;
     }
 
-    public Book add(String bookTitle) {
+    public Book checkIn(String bookTitle) {
         for(Book book : books) {
             if (bookTitle.equals(book.getTitle())) {
                 return book.checkIn();

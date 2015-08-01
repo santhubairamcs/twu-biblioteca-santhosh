@@ -42,17 +42,17 @@ public class LibraryTest {
     }
 
     @Test
-    public void shouldKnowsThatTheBookIsRemovedFromTheLibrary() {
+    public void shouldKnowsThatTheCheckOutIsSuccess() {
         ArrayList<Book> books = new ArrayList<Book>();
         Book book = new Book("11111", "A Suitable Boy", "Vikram Seth ", 1993, true);
         books.add(book);
         Library library = new Library(books);
 
-        assertEquals(book, library.remove("A Suitable Boy"));
+        assertEquals(book, library.checkOut("A Suitable Boy"));
     }
 
     @Test
-    public void shouldKnowsThatTheBookIsNotRemovedFromTheLibrary() {
+    public void shouldKnowsThatTheCheckOutIsFail() {
         ArrayList<Book> books = new ArrayList<Book>();
         Book book1 = new Book("11111", "A Suitable Boy", "Vikram Seth ", 1993, true);
         Book book2 = new Book("22222", "Cutting For Stone", "Abraham Verghese", 2009, true);
@@ -60,7 +60,7 @@ public class LibraryTest {
         books.add(book2);
         Library library = new Library(books);
 
-        assertEquals(null, library.remove("3 Mistakes of My Life"));
+        assertEquals(null, library.checkOut("3 Mistakes of My Life"));
     }
 
     @Test
@@ -72,8 +72,32 @@ public class LibraryTest {
         books.add(book2);
         Library library = new Library(books);
 
-        library.add("Cutting For Stone");
+        library.checkIn("Cutting For Stone");
 
         assertEquals(true, book2.isAvailable());
+    }
+
+    @Test
+    public void shouldKnowsThatCheckInIsSuccess() {
+        ArrayList<Book> books = new ArrayList<Book>();
+        Book book1 = new Book("11111", "A Suitable Boy", "Vikram Seth ", 1993, true);
+        Book book2 = new Book("44444","Train to Pakistan", "Khushwant Singh", 1956, false);
+        books.add(book1);
+        books.add(book2);
+        Library library = new Library(books);
+
+        assertEquals(book2, library.checkIn("Train to Pakistan"));
+    }
+
+    @Test
+    public void shouldKnowsThatCheckInIsFail() {
+        ArrayList<Book> books = new ArrayList<Book>();
+        Book book1 = new Book("11111", "A Suitable Boy", "Vikram Seth ", 1993, true);
+        Book book2 = new Book("44444","Train to Pakistan", "Khushwant Singh", 1956, false);
+        books.add(book1);
+        books.add(book2);
+        Library library = new Library(books);
+
+        assertEquals(null, library.checkIn("Train to China"));
     }
 }

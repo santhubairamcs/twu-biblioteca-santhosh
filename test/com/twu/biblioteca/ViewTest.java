@@ -88,7 +88,7 @@ public class ViewTest {
 
         view.displayCheckOutStatus(book);
 
-        assertEquals("Thank you! Enjoy the book\n", outContent.toString());
+        assertEquals("That book is not available\n", outContent.toString());
     }
 
     @Test

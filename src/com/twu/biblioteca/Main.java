@@ -16,7 +16,8 @@ public class Main {
         books.add(book3);
         books.add(book4);
         View view = new View();
-        BibliotecaApp bibliotecaApp = new BibliotecaApp(view , books);
+        Library library = new Library(books);
+        BibliotecaApp bibliotecaApp = new BibliotecaApp(view , library);
         bibliotecaApp.start(true);
     }
 }

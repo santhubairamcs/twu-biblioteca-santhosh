@@ -80,4 +80,14 @@ public class ViewTest {
 
         assertEquals("Thank you! Enjoy the book\n", outContent.toString());
     }
+
+    @Test
+    public void shouldKnowsHowToDisplayUnsuccessfulCheckOutStatus() {
+        View view = new View();
+        Book book = null;
+
+        view.displayCheckOutStatus(book);
+
+        assertEquals("Thank you! Enjoy the book\n", outContent.toString());
+    }
 }

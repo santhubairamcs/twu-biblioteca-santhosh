@@ -47,6 +47,9 @@ public class View {
     }
 
     public void displayCheckOutStatus(Book book) {
-        System.out.println("Thank you! Enjoy the book");
+        if (book != null)
+            System.out.println("Thank you! Enjoy the book");
+        else
+            System.out.println("Thank you! Enjoy the book");
     }
 }

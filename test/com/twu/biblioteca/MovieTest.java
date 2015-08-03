@@ -21,9 +21,16 @@ public class MovieTest {
     }
 
     @Test
-    public void shouldKnowsHowToMakeABookUnavailable() {
+    public void shouldKnowsHowToMakeAMovieUnavailable() {
         Movie movie = new Movie("The Shawshank Redemption", "Frank Darabont", 1994, 9, true);
 
         assertEquals(movie, movie.makeUnavailable());
+    }
+
+    @Test
+    public void shouldKnowsHowWhetherMovieIsAvailable() {
+        Movie movie = new Movie("The Shawshank Redemption", "Frank Darabont", 1994, 9, true);
+
+        assertEquals(true, movie.isavailable());
     }
 }

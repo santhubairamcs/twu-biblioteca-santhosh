@@ -26,4 +26,13 @@ public class Movie {
         }
         return null;
     }
+
+    public boolean isavailable() {
+        return available;
+    }
+
+    @Override
+    public String toString() {
+        return String.format("%-30s%-20s%-10s%-10s", title, director, yearOfRelease, rating);
+    }
 }

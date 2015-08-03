@@ -50,6 +50,11 @@ public class BibliotecaApp {
             else if (userChoice.equals("List Movies")) {
                 view.displayCheckOutMoviesList(movieSection.getMovies());
             }
+            else if (userChoice.equals("CheckIn Movie")) {
+                view.outputConsole("Enter movie name: ");
+                String movie = view.getUserInput();
+                view.displayCheckInMoviesStatus(movieSection.checkin(movie));
+            }
             else
                 view.outputConsole("Select a valid option!");
         }

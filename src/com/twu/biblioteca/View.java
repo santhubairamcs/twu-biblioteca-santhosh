@@ -73,4 +73,9 @@ public class View {
             System.out.println(movie.toString());
         }
     }
+
+    public void displayCheckInMoviesStatus(Movie movie) {
+        if (movie != null)
+            System.out.println("Thank you for returning the movie");
+    }
 }

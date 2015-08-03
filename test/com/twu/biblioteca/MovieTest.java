@@ -19,4 +19,11 @@ public class MovieTest {
 
         assertEquals(false, movie.hasTitle("The Shawshank"));
     }
+
+    @Test
+    public void shouldKnowsHowToMakeABookUnavailable() {
+        Movie movie = new Movie("The Shawshank Redemption", "Frank Darabont", 1994, 9, true);
+
+        assertEquals(movie, movie.makeUnavailable());
+    }
 }

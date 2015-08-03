@@ -18,4 +18,12 @@ public class Movie {
     public boolean hasTitle(String title) {
         return (this.title == title);
     }
+
+    public Movie makeUnavailable() {
+        if (available) {
+            this.available = false;
+            return this;
+        }
+        return null;
+    }
 }

@@ -36,4 +36,9 @@ public class MovieSection {
     public ArrayList<Movie> getMovies() {
         return availableMovies;
     }
+
+    public Movie checkin(String title) {
+        Movie movie = getMovieByTitle(title);
+        return movie.makeAvailable();
+    }
 }

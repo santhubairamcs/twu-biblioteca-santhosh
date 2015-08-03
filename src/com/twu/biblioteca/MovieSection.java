@@ -25,11 +25,11 @@ public class MovieSection {
     }
 
     public ArrayList<Movie> getCheckedOutBooks() {
-        ArrayList<Movie> checkedBooks = new ArrayList<Movie>();
+        ArrayList<Movie> checkedMovies = new ArrayList<Movie>();
         for (Movie movie : availableMovies) {
-            if (movie.isavailable())
-                checkedBooks.add(movie);
+            if (!movie.isavailable())
+                checkedMovies.add(movie);
         }
-        return checkedBooks;
+        return checkedMovies;
     }
 }

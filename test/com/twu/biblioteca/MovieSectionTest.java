@@ -3,6 +3,7 @@ package com.twu.biblioteca;
 import org.junit.Test;
 import java.util.ArrayList;
 
+import static org.junit.Assert.assertArrayEquals;
 import static org.junit.Assert.assertEquals;
 
 
@@ -67,13 +68,18 @@ public class MovieSectionTest {
         ArrayList<Movie> checkOutAllMoviesList = new ArrayList<Movie>();
         Movie movie3 = new Movie("bahubali", "rajamouli", 2015, 9, false);
         Movie movie4 = new Movie("The Shawshank Redemption", "Frank Darabont", 1994, 9, false);
-        availableMovies.add(movie3);
-        availableMovies.add(movie4);
+        checkOutAllMoviesList.add(movie3);
+        checkOutAllMoviesList.add(movie4);
         MovieSection movieSection = new MovieSection(availableMovies);
 
         movieSection.checkout("bahubali");
         movieSection.checkout("The Shawshank Redemption");
+        ArrayList<Movie> checked = movieSection.getCheckedOutBooks();
+        Movie list1[] = new Movie[availableMovies.size()];
+        list1 = availableMovies.toArray(list1);
+        Movie list2[] = new Movie[checked.size()];
+        list2 = checked.toArray(list2);
 
-        assertEquals(checkOutAllMoviesList, movieSection.getCheckedOutBooks());
+        assertArrayEquals(list1, list2);
     }
 }

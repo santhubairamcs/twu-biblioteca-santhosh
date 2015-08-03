@@ -5,7 +5,7 @@ public class Movie {
     private final String director;
     private final int yearOfRelease;
     private final int rating;
-    private final boolean available;
+    private boolean available;
 
     public Movie(String title, String director, int yearOfRelease, int rating, boolean available) {
         this.title = title;

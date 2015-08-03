@@ -66,4 +66,11 @@ public class View {
         else
             System.out.println("That movie is not available");
     }
+
+    public void displayCheckOutMoviesList(ArrayList<Movie> checkedOutBooks) {
+        System.out.format("%-30s%-20s%-10s%-10s\n", "Title", "Director", "YearOfPublish", "Rating");
+        for (Movie movie : checkedOutBooks) {
+            System.out.println(movie.toString());
+        }
+    }
 }

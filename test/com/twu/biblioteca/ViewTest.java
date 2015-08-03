@@ -6,6 +6,7 @@ import java.io.*;
 import java.util.ArrayList;
 
 import static org.junit.Assert.assertEquals;
+import static org.mockito.Mockito.*;
 
 
 public class ViewTest {
@@ -109,5 +110,20 @@ public class ViewTest {
         view.displayCheckInStatus(book);
 
         assertEquals("That is not a valid book to return\n", outContent.toString());
+    }
+
+    @Test
+    public void shouldKnowsHowToDisplayCheckOutMoviesList() {
+        View view = new View();
+        ArrayList<Movie> movies = new ArrayList<Movie>();
+        Movie movie1 = new Movie("bahubali", "rajamouli", 2015, 9, false);
+        Movie movie2 = new Movie("The Shawshank Redemption", "Frank Darabont", 1994, 9, false);
+        movies.add(movie1);
+        movies.add(movie2);
+        view.displayCheckOutMoviesList(movies);
+
+        assertEquals("Title                         Director            YearOfPublishRating    \n" +
+                "bahubali                      rajamouli           2015      9         \n" +
+                "The Shawshank Redemption      Frank Darabont      1994      9         \n", outContent.toString());
     }
 }

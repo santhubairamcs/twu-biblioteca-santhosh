@@ -20,7 +20,7 @@ public class BibliotecaApp {
 
     private void menuLoop(boolean runUntilQuit) {
         while (runUntilQuit) {
-            view.outputConsole("\nChoose option\n\tListBooks\n\tCheckOut\n\tCheckIn\n\tQuit\n");
+            view.outputConsole("\nChoose option\n\tListBooks\n\tCheckOut\n\tCheckIn\n\tCheckOut Movie\n\tList Checked Movies\n\tQuit\n");
             view.outputConsole("Enter your choice: ");
             String userChoice = view.getUserInput();
             if (userChoice.equals("ListBooks")) {
@@ -43,6 +43,9 @@ public class BibliotecaApp {
                 view.outputConsole("Enter movie name: ");
                 String movie = view.getUserInput();
                 view.displayMovieCheckOutStatus(movieSection.checkout(movie));
+            }
+            else if (userChoice.equals("List Checked Movies")) {
+                view.displayCheckOutMoviesList(movieSection.getCheckedOutBooks());
             }
             else
                 view.outputConsole("Select a valid option!");

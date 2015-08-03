@@ -33,4 +33,13 @@ public class MovieTest {
 
         assertEquals(true, movie.isavailable());
     }
+
+    @Test
+    public void shouldKnowsHowToMakeMovieAvailable() {
+        Movie movie = new Movie("The Shawshank Redemption", "Frank Darabont", 1994, 9, false);
+
+        movie.makeAvailable();
+        
+        assertEquals(true, movie.isavailable());
+    }
 }

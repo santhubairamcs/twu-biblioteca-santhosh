@@ -27,6 +27,14 @@ public class Movie {
         return null;
     }
 
+    public Movie makeAvailable() {
+        if (available == false) {
+            this.available = true;
+            return this;
+        }
+        return null;
+    }
+
     public boolean isavailable() {
         return available;
     }

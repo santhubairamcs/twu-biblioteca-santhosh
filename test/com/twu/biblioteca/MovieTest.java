@@ -12,4 +12,11 @@ public class MovieTest {
 
         assertEquals(true, movie.hasTitle("The Shawshank Redemption"));
     }
+
+    @Test
+    public void shouldKnowsHowToCheckNotExistedMovieByTitle() {
+        Movie movie = new Movie("The Shawshank Redemption", "Frank Darabont", 1994, 9, true);
+
+        assertEquals(false, movie.hasTitle("The Shawshank"));
+    }
 }

@@ -140,4 +140,18 @@ public class ViewTest {
 
         assertEquals("Thank you for returning the movie\n", outContent.toString());
     }
+
+    @Test
+    public void shouldKnowsThatTheMovieCheckedInUnSuccessful() {
+        ArrayList<Movie> movies = new ArrayList<Movie>();
+        Movie movie1 = new Movie("bahubali", "rajamouli", 2015, 9, false);
+        Movie movie2 = new Movie("The Shawshank Redemption", "Frank Darabont", 1994, 9, false);
+        movies.add(movie1);
+        movies.add(movie2);
+        View view = new View();
+
+        view.displayCheckInMoviesStatus(null);
+
+        assertEquals("That is not a valid movie to return\n", outContent.toString());
+    }
 }

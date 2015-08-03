@@ -77,5 +77,7 @@ public class View {
     public void displayCheckInMoviesStatus(Movie movie) {
         if (movie != null)
             System.out.println("Thank you for returning the movie");
+        else
+            System.out.println("That is not a valid movie to return");
     }
 }

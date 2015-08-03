@@ -3,7 +3,7 @@ package com.twu.biblioteca;
 import java.util.ArrayList;
 
 public class MovieSection {
-    ArrayList<Movie> availableMovies = new ArrayList<Movie>();
+    ArrayList<Movie> availableMovies;
 
     public MovieSection(ArrayList<Movie> availableMovies) {
         this.availableMovies = availableMovies;
@@ -31,5 +31,9 @@ public class MovieSection {
                 checkedMovies.add(movie);
         }
         return checkedMovies;
+    }
+
+    public ArrayList<Movie> getMovies() {
+        return availableMovies;
     }
 }

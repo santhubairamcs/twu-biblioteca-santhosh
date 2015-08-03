@@ -82,4 +82,16 @@ public class MovieSectionTest {
 
         assertArrayEquals(list1, list2);
     }
+
+    @Test
+    public void shouldKnowsHowToReturnListOfMovies() {
+        ArrayList<Movie> movies = new ArrayList<Movie>();
+        Movie movie1 = new Movie("bahubali", "rajamouli", 2015, 9, true);
+        Movie movie2 = new Movie("The Shawshank Redemption", "Frank Darabont", 1994, 9, true);
+        movies.add(movie1);
+        movies.add(movie2);
+        MovieSection movieSection = new MovieSection(movies);
+
+        assertEquals(movies, movieSection.getMovies());
+    }
 }

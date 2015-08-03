@@ -14,4 +14,8 @@ public class Movie {
         this.rating = rating;
         this.available = available;
     }
+
+    public boolean hasTitle(String title) {
+        return (this.title == title);
+    }
 }

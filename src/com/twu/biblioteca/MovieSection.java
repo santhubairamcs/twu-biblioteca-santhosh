@@ -10,6 +10,10 @@ public class MovieSection {
     }
 
     public Movie getMovieByTitle(String title) {
+        for (Movie movie : availableMovies) {
+            if (movie.hasTitle(title))
+                return movie;
+        }
         return null;
     }
 }

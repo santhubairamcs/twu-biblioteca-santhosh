@@ -16,4 +16,10 @@ public class MovieSection {
         }
         return null;
     }
+
+    public Movie checkout(String title) {
+        Movie movie = getMovieByTitle(title);
+        movie.makeUnavailable();
+        return movie;
+    }
 }

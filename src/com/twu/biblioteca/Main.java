@@ -17,7 +17,13 @@ public class Main {
         books.add(book4);
         View view = new View();
         Library library = new Library(books);
-        BibliotecaApp bibliotecaApp = new BibliotecaApp(view , library);
+        ArrayList<Movie> availableMovies = new ArrayList<Movie>();
+        Movie movie1 = new Movie("bahubali", "rajamouli", 2015, 9, true);
+        Movie movie2 = new Movie("The Shawshank Redemption", "Frank Darabont", 1994, 9, true);
+        availableMovies.add(movie1);
+        availableMovies.add(movie2);
+        MovieSection movieSection = new MovieSection(availableMovies);
+        BibliotecaApp bibliotecaApp = new BibliotecaApp(view , library, movieSection);
         bibliotecaApp.start(true);
     }
 }

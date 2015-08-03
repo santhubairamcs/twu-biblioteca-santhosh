@@ -12,7 +12,8 @@ public class BibliotecaAppTest {
     public void shouldKnowsWhetherGettingFunctionCalledUsingMock() {
         View viewMock = mock(View.class);
         Library library = new Library(new ArrayList<Book>());
-        BibliotecaApp biblioteca = new BibliotecaApp(viewMock, library);
+        MovieSection movieSection = new MovieSection(new ArrayList<Movie>());
+        BibliotecaApp biblioteca = new BibliotecaApp(viewMock, library, movieSection);
 
         biblioteca.start(false);
 

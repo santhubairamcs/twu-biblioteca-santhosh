@@ -59,4 +59,11 @@ public class View {
         else
             System.out.println("That is not a valid book to return");
     }
+
+    public void displayMovieCheckOutStatus(Movie movie) {
+        if (movie != null)
+            System.out.println("Thank you! Enjoy the movie");
+        else
+            System.out.println("That movie is not available");
+    }
 }

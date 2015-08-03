@@ -15,8 +15,8 @@ public class Movie {
         this.available = available;
     }
 
-    public boolean hasTitle(String title) {
-        return (this.title == title);
+    public boolean hasTitle(String titleThat) {
+        return (title.equals(titleThat));
     }
 
     public Movie makeUnavailable() {

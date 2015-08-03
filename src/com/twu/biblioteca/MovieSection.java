@@ -23,4 +23,13 @@ public class MovieSection {
             return movie.makeUnavailable();
         return null;
     }
+
+    public ArrayList<Movie> getCheckedOutBooks() {
+        ArrayList<Movie> checkedBooks = new ArrayList<Movie>();
+        for (Movie movie : availableMovies) {
+            if (movie.isavailable())
+                checkedBooks.add(movie);
+        }
+        return checkedBooks;
+    }
 }

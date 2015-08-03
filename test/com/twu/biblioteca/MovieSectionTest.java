@@ -56,4 +56,24 @@ public class MovieSectionTest {
 
         assertEquals(null, movieSection.checkout("the"));
     }
+
+    @Test
+    public void shouldKnowsHowToListCheckedOutMovies() {
+        ArrayList<Movie> availableMovies = new ArrayList<Movie>();
+        Movie movie1 = new Movie("bahubali", "rajamouli", 2015, 9, true);
+        Movie movie2 = new Movie("The Shawshank Redemption", "Frank Darabont", 1994, 9, true);
+        availableMovies.add(movie1);
+        availableMovies.add(movie2);
+        ArrayList<Movie> checkOutAllMoviesList = new ArrayList<Movie>();
+        Movie movie3 = new Movie("bahubali", "rajamouli", 2015, 9, false);
+        Movie movie4 = new Movie("The Shawshank Redemption", "Frank Darabont", 1994, 9, false);
+        availableMovies.add(movie3);
+        availableMovies.add(movie4);
+        MovieSection movieSection = new MovieSection(availableMovies);
+
+        movieSection.checkout("bahubali");
+        movieSection.checkout("The Shawshank Redemption");
+
+        assertEquals(checkOutAllMoviesList, movieSection.getCheckedOutBooks());
+    }
 }

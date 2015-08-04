@@ -23,4 +23,13 @@ public class IssueRegisterTest {
 
         assertEquals(true, issueRegister.checkEntry(user, "Train to Pakistan"));
     }
+
+    @Test
+    public void shouldKnowsHowToCheckWhetherGivenUserHadTakenNotTheGivenLibraryItem() {
+        User user = new User("name1", "user1@gmail.com", "1234567890", "000-0001", "12345", "librarian");
+        IssueRegister issueRegister = new IssueRegister();
+        issueRegister.addEntry(user, "Train to Pakistan");
+
+        assertEquals(false, issueRegister.checkEntry(user, "Train"));
+    }
 }

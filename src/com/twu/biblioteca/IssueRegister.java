@@ -11,6 +11,11 @@ public class IssueRegister {
     }
 
     public boolean checkEntry(User userThat,String bookTitle) {
-        return true;
+        for (User user : issueRegister.keySet()) {
+            if ( user.equals(userThat) && bookTitle.equals(issueRegister.get(user)) ) {
+                return true;
+            }
+        }
+        return false;
     }
 }

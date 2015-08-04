@@ -9,4 +9,8 @@ public class IssueRegister {
         issueRegister.put(user, itemName);
         return user;
     }
+
+    public boolean checkEntry(User userThat,String bookTitle) {
+        return true;
+    }
 }

@@ -26,4 +26,8 @@ public class User {
     public String toString() {
         return String.format("%-25s%-25s%-25s%-25s", name, email, phone,role );
     }
+
+    public String getRole() {
+        return role;
+    }
 }

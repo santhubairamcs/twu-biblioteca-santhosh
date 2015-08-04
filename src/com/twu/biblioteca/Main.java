@@ -30,7 +30,13 @@ public class Main {
         availableMovies.add(movie1);
         availableMovies.add(movie2);
         MovieSection movieSection = new MovieSection(availableMovies);
-        BibliotecaApp bibliotecaApp = new BibliotecaApp(view , bookSection, movieSection);
+        ArrayList<User> users = new ArrayList<User>();
+        User user1 = new User("name1", "user1@gmail.com", "1234567890", "000-0001", "12345", "librarian");
+        User user2 = new User("name2", "user2@gmail.com", "0987654321", "001-0001", "12345", "user");
+        users.add(user1);
+        users.add(user2);
+        Login login = new Login(users);
+        BibliotecaApp bibliotecaApp = new BibliotecaApp(view , bookSection, movieSection, login);
         bibliotecaApp.start(true);
     }
 }

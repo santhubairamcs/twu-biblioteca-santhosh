@@ -100,4 +100,19 @@ public class BookSectionTest {
 
         assertEquals(null, bookSection.checkIn("Train to China"));
     }
+
+    @Test
+    public void shouldKnowsHowToReturnListOfCheckedBooks() {
+        ArrayList<Book> books = new ArrayList<Book>();
+        Book book1 = new Book("11111", "A Suitable Boy", "Vikram Seth ", 1993, true);
+        Book book2 = new Book("44444","Train to Pakistan", "Khushwant Singh", 1956, true);
+        books.add(book1);
+        books.add(book2);
+        BookSection bookSection = new BookSection(books);
+        ArrayList<Book> checkedBooks = new ArrayList<Book>();
+        checkedBooks.add(bookSection.checkOut("A Suitable Boy"));
+        checkedBooks.add(bookSection.checkOut("Train to Pakistan"));
+
+        assertEquals(checkedBooks, bookSection.getCheckedOutBooks());
+    }
 }

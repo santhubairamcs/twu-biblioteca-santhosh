@@ -41,4 +41,13 @@ public class BookSection {
         }
         return null;
     }
+
+    public ArrayList<Book> getCheckedOutBooks() {
+        ArrayList<Book> checkedBooks = new ArrayList<Book>();
+        for (Book book : books) {
+            if (!book.isAvailable())
+                checkedBooks.add(book);
+        }
+        return checkedBooks;
+    }
 }

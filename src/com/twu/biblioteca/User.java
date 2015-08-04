@@ -17,6 +17,6 @@ public class User {
 
 
     public boolean authenticate(String libraryNumber, String password) {
-        return true;
+        return (this.libraryNumber == libraryNumber && this.password == password);
     }
 }

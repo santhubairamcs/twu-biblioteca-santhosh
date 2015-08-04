@@ -14,4 +14,10 @@ public class UserTest {
         assertEquals(true, user.authenticate("000-0001", "12345"));
     }
 
+    @Test
+    public void shouldKnowsHowToAuthenticateUserWithGivenWrongLibraryNumberOrPasswordOrBoth() {
+        User user = new User("name1", "user1@gmail.com", "1234567890", "000-0001", "12345");
+
+        assertEquals(false, user.authenticate("000-0001", "1234"));
+    }
 }

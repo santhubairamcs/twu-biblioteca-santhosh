@@ -2,7 +2,7 @@ package com.twu.biblioteca;
 
 import com.twu.biblioteca.controller.BibliotecaApp;
 import com.twu.biblioteca.model.Book;
-import com.twu.biblioteca.model.Library;
+import com.twu.biblioteca.model.BookSection;
 import com.twu.biblioteca.model.Movie;
 import com.twu.biblioteca.model.MovieSection;
 import com.twu.biblioteca.view.View;
@@ -23,14 +23,14 @@ public class Main {
         books.add(book3);
         books.add(book4);
         View view = new View();
-        Library library = new Library(books);
+        BookSection bookSection = new BookSection(books);
         ArrayList<Movie> availableMovies = new ArrayList<Movie>();
         Movie movie1 = new Movie("bahubali", "rajamouli", 2015, 9, true);
         Movie movie2 = new Movie("The Shawshank Redemption", "Frank Darabont", 1994, 9, true);
         availableMovies.add(movie1);
         availableMovies.add(movie2);
         MovieSection movieSection = new MovieSection(availableMovies);
-        BibliotecaApp bibliotecaApp = new BibliotecaApp(view , library, movieSection);
+        BibliotecaApp bibliotecaApp = new BibliotecaApp(view , bookSection, movieSection);
         bibliotecaApp.start(true);
     }
 }

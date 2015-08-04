@@ -1,7 +1,5 @@
 package com.twu.biblioteca.model;
 
-import com.twu.biblioteca.model.Movie;
-import com.twu.biblioteca.model.MovieSection;
 import org.junit.Test;
 import java.util.ArrayList;
 
@@ -76,7 +74,7 @@ public class MovieSectionTest {
 
         movieSection.checkout("bahubali");
         movieSection.checkout("The Shawshank Redemption");
-        ArrayList<Movie> checked = movieSection.getCheckedOutBooks();
+        ArrayList<Movie> checked = movieSection.getCheckedOutMovies();
         Movie list1[] = new Movie[availableMovies.size()];
         list1 = availableMovies.toArray(list1);
         Movie list2[] = new Movie[checked.size()];

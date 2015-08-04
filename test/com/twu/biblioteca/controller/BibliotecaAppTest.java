@@ -1,8 +1,7 @@
 package com.twu.biblioteca.controller;
 
-import com.twu.biblioteca.controller.BibliotecaApp;
 import com.twu.biblioteca.model.Book;
-import com.twu.biblioteca.model.Library;
+import com.twu.biblioteca.model.BookSection;
 import com.twu.biblioteca.model.Movie;
 import com.twu.biblioteca.model.MovieSection;
 import com.twu.biblioteca.view.View;
@@ -17,9 +16,9 @@ public class BibliotecaAppTest {
     @Test
     public void shouldKnowsWhetherGettingFunctionCalledUsingMock() {
         View viewMock = mock(View.class);
-        Library library = new Library(new ArrayList<Book>());
+        BookSection bookSection = new BookSection(new ArrayList<Book>());
         MovieSection movieSection = new MovieSection(new ArrayList<Movie>());
-        BibliotecaApp biblioteca = new BibliotecaApp(viewMock, library, movieSection);
+        BibliotecaApp biblioteca = new BibliotecaApp(viewMock, bookSection, movieSection);
 
         biblioteca.start(false);
 

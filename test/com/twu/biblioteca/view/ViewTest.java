@@ -1,9 +1,8 @@
 package com.twu.biblioteca.view;
 
 import com.twu.biblioteca.model.Book;
-import com.twu.biblioteca.model.Library;
+import com.twu.biblioteca.model.BookSection;
 import com.twu.biblioteca.model.Movie;
-import com.twu.biblioteca.view.View;
 import org.junit.Before;
 import org.junit.Test;
 import java.io.*;
@@ -44,9 +43,9 @@ public class ViewTest {
         Book book = new Book("11111", "A Suitable Boy", "Vikram Seth", 1993, true);
         ArrayList<Book> books = new ArrayList<Book>();
         books.add(book);
-        Library library = new Library(books);
+        BookSection bookSection = new BookSection(books);
 
-        assertEquals(books, library.getBooks());
+        assertEquals(books, bookSection.getBooks());
     }
 
     @Test

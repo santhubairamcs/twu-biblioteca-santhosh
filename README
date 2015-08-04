@@ -3,7 +3,7 @@ Biblioteca Library Management System
 
 The Bangalore Public Library has approached us to design and implement a Library Management System for them.
 Based on their requirements, we have decided to develop a new system named Biblioteca.
-Since the library has a large list of requirements, we will be making multiple releases of Biblioteca,
+Since the Library has a large list of requirements, we will be making multiple releases of Biblioteca,
 with each release incrementally adding more functionality.
 
 =============

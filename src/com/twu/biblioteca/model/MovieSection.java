@@ -24,7 +24,7 @@ public class MovieSection {
         return null;
     }
 
-    public ArrayList<Movie> getCheckedOutBooks() {
+    public ArrayList<Movie> getCheckedOutMovies() {
         ArrayList<Movie> checkedMovies = new ArrayList<Movie>();
         for (Movie movie : availableMovies) {
             if (!movie.isavailable())

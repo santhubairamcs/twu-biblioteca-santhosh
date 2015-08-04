@@ -1,23 +1,21 @@
 package com.twu.biblioteca.model;
 
-import com.twu.biblioteca.model.Book;
-import com.twu.biblioteca.model.Library;
 import org.junit.Test;
 import java.util.ArrayList;
 
 import static org.junit.Assert.assertEquals;
 
 
-public class LibraryTest {
+public class BookSectionTest {
 
     @Test
     public void shouldKnowsHowToListBooksOfLibrary() {
         ArrayList<Book> books = new ArrayList<Book>();
         Book book = new Book("11111", "A Suitable Boy", "Vikram Seth ", 1993, true);
         books.add(book);
-        Library library = new Library(books);
+        BookSection bookSection = new BookSection(books);
 
-        ArrayList<Book> booksFromLibrary = library.getBooks();
+        ArrayList<Book> booksFromLibrary = bookSection.getBooks();
 
         for(int i = 0;i < books.size(); i++)
             assertEquals(books.get(i), booksFromLibrary.get(i));
@@ -28,9 +26,9 @@ public class LibraryTest {
         ArrayList<Book> books = new ArrayList<Book>();
         Book book = new Book("11111", "A Suitable Boy", "Vikram Seth ", 1993, true);
         books.add(book);
-        Library library = new Library(books);
+        BookSection bookSection = new BookSection(books);
 
-        assertEquals(true, library.contains("A Suitable Boy"));
+        assertEquals(true, bookSection.contains("A Suitable Boy"));
     }
 
     @Test
@@ -38,9 +36,9 @@ public class LibraryTest {
         ArrayList<Book> books = new ArrayList<Book>();
         Book book = new Book("11111", "A Suitable Boy", "Vikram Seth ", 1993, true);
         books.add(book);
-        Library library = new Library(books);
+        BookSection bookSection = new BookSection(books);
 
-        assertEquals(false, library.contains("3 Mistakes of My Life"));
+        assertEquals(false, bookSection.contains("3 Mistakes of My Life"));
     }
 
     @Test
@@ -48,9 +46,9 @@ public class LibraryTest {
         ArrayList<Book> books = new ArrayList<Book>();
         Book book = new Book("11111", "A Suitable Boy", "Vikram Seth ", 1993, true);
         books.add(book);
-        Library library = new Library(books);
+        BookSection bookSection = new BookSection(books);
 
-        assertEquals(book, library.checkOut("A Suitable Boy"));
+        assertEquals(book, bookSection.checkOut("A Suitable Boy"));
     }
 
     @Test
@@ -60,9 +58,9 @@ public class LibraryTest {
         Book book2 = new Book("22222", "Cutting For Stone", "Abraham Verghese", 2009, true);
         books.add(book1);
         books.add(book2);
-        Library library = new Library(books);
+        BookSection bookSection = new BookSection(books);
 
-        assertEquals(null, library.checkOut("3 Mistakes of My Life"));
+        assertEquals(null, bookSection.checkOut("3 Mistakes of My Life"));
     }
 
     @Test
@@ -72,9 +70,9 @@ public class LibraryTest {
         Book book2 = new Book("22222", "Cutting For Stone", "Abraham Verghese", 2009, false);
         books.add(book1);
         books.add(book2);
-        Library library = new Library(books);
+        BookSection bookSection = new BookSection(books);
 
-        library.checkIn("Cutting For Stone");
+        bookSection.checkIn("Cutting For Stone");
 
         assertEquals(true, book2.isAvailable());
     }
@@ -86,9 +84,9 @@ public class LibraryTest {
         Book book2 = new Book("44444","Train to Pakistan", "Khushwant Singh", 1956, false);
         books.add(book1);
         books.add(book2);
-        Library library = new Library(books);
+        BookSection bookSection = new BookSection(books);
 
-        assertEquals(book2, library.checkIn("Train to Pakistan"));
+        assertEquals(book2, bookSection.checkIn("Train to Pakistan"));
     }
 
     @Test
@@ -98,8 +96,8 @@ public class LibraryTest {
         Book book2 = new Book("44444","Train to Pakistan", "Khushwant Singh", 1956, false);
         books.add(book1);
         books.add(book2);
-        Library library = new Library(books);
+        BookSection bookSection = new BookSection(books);
 
-        assertEquals(null, library.checkIn("Train to China"));
+        assertEquals(null, bookSection.checkIn("Train to China"));
     }
 }

@@ -1,6 +1,6 @@
 <?xml version="1.0"?>
 
-<project name="Biblioteca" default="runjunit" basedir=".">
+<project name="Biblioteca" default="runjar" basedir=".">
 
     <property name="lib.dir" value="lib"/>
 
@@ -20,8 +20,10 @@
         <junit haltonfailure="true" printsummary="true" showoutput="yes">
             <test name="com.twu.biblioteca.controller.BibliotecaAppTest"/>
             <test name="com.twu.biblioteca.view.ViewTest"/>
-            <test name="com.twu.biblioteca.model.LibraryTest"/>
+            <test name="com.twu.biblioteca.model.BookSectionTest"/>
             <test name="com.twu.biblioteca.model.BookTest"/>
+            <test name="com.twu.biblioteca.model.MovieSectionTest"/>
+            <test name="com.twu.biblioteca.model.MovieTest"/>
             <classpath>
                 <pathelement location="out"/>
                 <path refid="classpath"/>

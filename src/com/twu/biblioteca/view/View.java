@@ -20,13 +20,9 @@ public class View {
     }
 
     public void listBooks(ArrayList<Book> books) {
-        Book book;
         displayBookHeader();
-        for (int i = 0; i < books.size() ;i++) {
-            book = books.get(i);
-            if (book.isAvailable())
-                displayBook(books.get(i));
-        }
+        for (Book book : books)
+            displayBook(book);
     }
 
     private void displayBookHeader() {

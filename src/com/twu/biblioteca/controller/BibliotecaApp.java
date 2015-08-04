@@ -22,8 +22,8 @@ public class BibliotecaApp {
 
     private void menuLoop(boolean runUntilQuit) {
         while (runUntilQuit) {
-            view.outputConsole("\nChoose option\n\t1.ListBooks\n\t2.CheckOut Book\n\t3.CheckIn Book\n\t4.List Movies\n\t5.CheckOut Movie\n\t6.CheckIn Movie\n" +
-                    "\t7.List Checked Movies\n\t8.Quit\n");
+            view.outputConsole("\nChoose option\n\t1.ListBooks\n\t2.CheckOut Book\n\t3.CheckIn Book\n\t4.List CheckOut Books\n" +
+                    "\t5.List Movies\n\t6.CheckOut Movie\n\t7.CheckIn Movie\n\t8.List Checked Movies\n\t9.Quit\n");
             view.outputConsole("Enter your choice: ");
             String userChoice = view.getUserInput();
             if (userChoice.equals("1")) {
@@ -40,22 +40,25 @@ public class BibliotecaApp {
                 view.displayCheckInStatus(bookSection.checkIn(book));
             }
             else if (userChoice.equals("4")) {
-                view.displayCheckOutMoviesList(movieSection.getMovies());
+                view.listBooks(bookSection.getCheckedOutBooks());
             }
             else if (userChoice.equals("5")) {
-                view.outputConsole("Enter movie name: ");
-                String movie = view.getUserInput();
-                view.displayMovieCheckOutStatus(movieSection.checkout(movie));
+                view.displayCheckOutMoviesList(movieSection.getMovies());
             }
             else if (userChoice.equals("6")) {
                 view.outputConsole("Enter movie name: ");
                 String movie = view.getUserInput();
-                view.displayCheckInMoviesStatus(movieSection.checkin(movie));
+                view.displayMovieCheckOutStatus(movieSection.checkout(movie));
             }
             else if (userChoice.equals("7")) {
-                view.displayCheckOutMoviesList(movieSection.getCheckedOutMovies());
+                view.outputConsole("Enter movie name: ");
+                String movie = view.getUserInput();
+                view.displayCheckInMoviesStatus(movieSection.checkin(movie));
             }
             else if (userChoice.equals("8")) {
+                view.displayCheckOutMoviesList(movieSection.getCheckedOutMovies());
+            }
+            else if (userChoice.equals("9")) {
                 System.exit(0);
             }
             else

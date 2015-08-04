@@ -1,12 +1,15 @@
-package com.twu.biblioteca;
+package com.twu.biblioteca.view;
 
+import com.twu.biblioteca.model.Book;
+import com.twu.biblioteca.model.Library;
+import com.twu.biblioteca.model.Movie;
+import com.twu.biblioteca.view.View;
 import org.junit.Before;
 import org.junit.Test;
 import java.io.*;
 import java.util.ArrayList;
 
 import static org.junit.Assert.assertEquals;
-import static org.mockito.Mockito.*;
 
 
 public class ViewTest {

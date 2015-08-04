@@ -1,5 +1,7 @@
-package com.twu.biblioteca;
+package com.twu.biblioteca.model;
 
+import com.twu.biblioteca.model.Movie;
+import com.twu.biblioteca.model.MovieSection;
 import org.junit.Test;
 import java.util.ArrayList;
 

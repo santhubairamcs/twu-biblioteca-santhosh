@@ -1,4 +1,4 @@
-package com.twu.biblioteca;
+package com.twu.biblioteca.model;
 
 import java.util.ArrayList;
 
@@ -39,6 +39,8 @@ public class MovieSection {
 
     public Movie checkin(String title) {
         Movie movie = getMovieByTitle(title);
-        return movie.makeAvailable();
+        if (movie != null)
+            return movie.makeAvailable();
+        return null;
     }
 }

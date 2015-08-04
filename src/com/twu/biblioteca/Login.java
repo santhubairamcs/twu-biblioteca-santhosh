@@ -10,6 +10,10 @@ public class Login {
         this.users = users;
     }
     public User authenticate(String libraryNumber, String password) {
+        for (User user : users) {
+            if (user.authenticate(libraryNumber, password))
+                return user;
+        }
         return null;
     }
 }

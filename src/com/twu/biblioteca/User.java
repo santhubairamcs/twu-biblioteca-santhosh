@@ -19,7 +19,7 @@ public class User {
 
 
     public boolean authenticate(String libraryNumber, String password) {
-        return (this.libraryNumber == libraryNumber && this.password == password);
+        return (libraryNumber.equals(this.libraryNumber) && password.equals(this.password));
     }
 
     @Override

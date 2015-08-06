@@ -3,16 +3,16 @@ package com.twu.biblioteca;
 import java.util.HashMap;
 
 public class IssueRegister {
-    HashMap<User, String> issueRegister = new HashMap<User, String>();
+    HashMap<String, User> issueRegister = new HashMap<String, User>();
 
-    public User addEntry(User user, String itemName) {
-        issueRegister.put(user, itemName);
+    public User addEntry(String itemName, User user) {
+        issueRegister.put(itemName, user);
         return user;
     }
 
-    public boolean checkEntry(User userThat,String bookTitle) {
-        for (User user : issueRegister.keySet()) {
-            if ( user.equals(userThat) && bookTitle.equals(issueRegister.get(user)) ) {
+    public boolean checkEntry(String checkItem, User userThat) {
+        for (String itemName : issueRegister.keySet()) {
+            if ( itemName.equals(checkItem) && userThat.equals(issueRegister.get(itemName)) ) {
                 return true;
             }
         }

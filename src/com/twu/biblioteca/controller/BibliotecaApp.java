@@ -74,13 +74,13 @@ public class BibliotecaApp {
                 String bookTitle = view.getUserInput();
                 Book book = bookSection.checkOut(bookTitle);
                 if (book != null)
-                    issueRegister.addEntry(user, bookTitle);
+                    issueRegister.addEntry(bookTitle, user);
                 view.displayCheckOutStatus(book);
             }
             else if (userChoice.equals("3")) {
                 view.outputConsole("Enter book name: ");
                 String book = view.getUserInput();
-                if (issueRegister.checkEntry(user, book))
+                if (issueRegister.checkEntry(book, user))
                     view.displayCheckInStatus(bookSection.checkIn(book));
                 else
                     view.outputConsole("You are not authorised to checkin this book");
@@ -93,13 +93,13 @@ public class BibliotecaApp {
                 String movieTitle = view.getUserInput();
                 Movie movie = movieSection.checkout(movieTitle);
                 if (movie != null)
-                    issueRegister.addEntry(user, movieTitle);
+                    issueRegister.addEntry(movieTitle, user);
                 view.displayMovieCheckOutStatus(movie);
             }
             else if (userChoice.equals("6")) {
                 view.outputConsole("Enter movie name: ");
                 String movie = view.getUserInput();
-                if (issueRegister.checkEntry(user, movie))
+                if (issueRegister.checkEntry(movie, user))
                     view.displayCheckInMoviesStatus(movieSection.checkin(movie));
                 else
                     view.outputConsole("You are not authorised to checkin this movie");

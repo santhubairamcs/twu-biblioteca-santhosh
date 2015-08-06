@@ -1,8 +1,8 @@
 package com.twu.biblioteca.controller;
 
-import com.twu.biblioteca.IssueRegister;
-import com.twu.biblioteca.Login;
-import com.twu.biblioteca.User;
+import com.twu.biblioteca.model.IssueRegister;
+import com.twu.biblioteca.model.Login;
+import com.twu.biblioteca.model.User;
 import com.twu.biblioteca.model.Book;
 import com.twu.biblioteca.model.BookSection;
 import com.twu.biblioteca.model.Movie;

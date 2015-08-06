@@ -1,22 +1,26 @@
 Biblioteca Library Management System
-===============
+====================================
 
 The Bangalore Public Library has approached us to design and implement a Library Management System for them.
 Based on their requirements, we have decided to develop a new system named Biblioteca.
 Since the Library has a large list of requirements, we will be making multiple releases of Biblioteca,
 with each release incrementally adding more functionality.
 
+
+Requirements
 =============
 
 The requirements of this application are:
 
-[1] IntelliJ IDEA
+[1] JDK7
 
-[2] Ant
+[2] IntelliJ IDEA
 
-[3] JUnit 4.11
+[3] Ant
 
-[4] Hamcrest Core 1.3
+[4] JUnit 4.11
+
+[5] Hamcrest Core 1.3
 
 
 Instructions to open your code in IntelliJ

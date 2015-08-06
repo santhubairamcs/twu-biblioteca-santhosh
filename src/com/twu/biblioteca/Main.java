@@ -1,10 +1,7 @@
 package com.twu.biblioteca;
 
 import com.twu.biblioteca.controller.BibliotecaApp;
-import com.twu.biblioteca.model.Book;
-import com.twu.biblioteca.model.BookSection;
-import com.twu.biblioteca.model.Movie;
-import com.twu.biblioteca.model.MovieSection;
+import com.twu.biblioteca.model.*;
 import com.twu.biblioteca.view.View;
 
 import java.util.ArrayList;

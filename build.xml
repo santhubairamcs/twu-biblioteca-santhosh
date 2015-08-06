@@ -18,12 +18,14 @@
 
     <target name="runjunit" depends="compile">
         <junit haltonfailure="true" printsummary="true" showoutput="yes">
-            <test name="com.twu.biblioteca.controller.BibliotecaAppTest"/>
             <test name="com.twu.biblioteca.view.ViewTest"/>
             <test name="com.twu.biblioteca.model.BookSectionTest"/>
             <test name="com.twu.biblioteca.model.BookTest"/>
             <test name="com.twu.biblioteca.model.MovieSectionTest"/>
             <test name="com.twu.biblioteca.model.MovieTest"/>
+            <test name="com.twu.biblioteca.model.LoginTest"/>
+            <test name="com.twu.biblioteca.model.UserTest"/>
+            <test name="com.twu.biblioteca.model.IssueRegisterTest"/>
             <classpath>
                 <pathelement location="out"/>
                 <path refid="classpath"/>

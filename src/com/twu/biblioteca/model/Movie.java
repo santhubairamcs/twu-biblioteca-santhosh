@@ -19,7 +19,7 @@ public class Movie {
         return (title.equals(titleThat));
     }
 
-    public Movie makeUnavailable() {
+    public Movie checkOut() {
         if (available) {
             this.available = false;
             return this;
@@ -27,7 +27,7 @@ public class Movie {
         return null;
     }
 
-    public Movie makeAvailable() {
+    public Movie checkIn() {
         if (available == false) {
             this.available = true;
             return this;

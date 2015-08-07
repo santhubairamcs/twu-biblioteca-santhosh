@@ -1,12 +1,15 @@
 package com.twu.biblioteca.model;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 
 public class MovieSection {
     ArrayList<Movie> availableMovies;
+    HashMap<Movie, User> checkedMovies;
 
-    public MovieSection(ArrayList<Movie> availableMovies) {
+    public MovieSection(ArrayList<Movie> availableMovies, HashMap<Movie, User> checkedMovies) {
         this.availableMovies = availableMovies;
+        this.checkedMovies = checkedMovies;
     }
 
     public Movie getMovieByTitle(String title) {
@@ -17,10 +20,15 @@ public class MovieSection {
         return null;
     }
 
-    public Movie checkout(String title) {
+    public Movie checkOut(String title, User user) {
         Movie movie = getMovieByTitle(title);
-        if (movie != null)
-            return movie.makeUnavailable();
+        if (movie != null) {
+            Movie checkedMovie = movie.checkOut();
+            if (checkedMovie != null) {
+                checkedMovies.put(checkedMovie, user);
+                return checkedMovie;
+            }
+        }
         return null;
     }
 
@@ -37,10 +45,16 @@ public class MovieSection {
         return availableMovies;
     }
 
-    public Movie checkin(String title) {
-        Movie movie = getMovieByTitle(title);
-        if (movie != null)
-            return movie.makeAvailable();
+    public Movie checkIn(String title, User user) {
+        for (Movie movie : checkedMovies.keySet()) {
+            if (movie.hasTitle(title) && user.equals(checkedMovies.get(movie))) {
+                Movie checkedMovie = movie.checkIn();
+                if (checkedMovie != null) {
+                    checkedMovies.remove(checkedMovie);
+                    return checkedMovie;
+                }
+            }
+        }
         return null;
     }
 }

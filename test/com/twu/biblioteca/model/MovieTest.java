@@ -25,7 +25,7 @@ public class MovieTest {
     public void shouldKnowsHowToMakeAMovieUnavailable() {
         Movie movie = new Movie("The Shawshank Redemption", "Frank Darabont", 1994, 9, true);
 
-        assertEquals(movie, movie.makeUnavailable());
+        assertEquals(movie, movie.checkOut());
     }
 
     @Test
@@ -39,7 +39,7 @@ public class MovieTest {
     public void shouldKnowsHowToMakeMovieAvailable() {
         Movie movie = new Movie("The Shawshank Redemption", "Frank Darabont", 1994, 9, false);
 
-        movie.makeAvailable();
+        movie.checkIn();
 
         assertEquals(true, movie.isavailable());
     }

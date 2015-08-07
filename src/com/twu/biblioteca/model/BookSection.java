@@ -1,10 +1,12 @@
 package com.twu.biblioteca.model;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 
 
 public class BookSection {
     private ArrayList<Book> books;
+    private HashMap<Book, User> checkedBooks = new HashMap<Book, User>();
 
     public BookSection(ArrayList<Book> books) {
         this.books = books;
@@ -22,30 +24,31 @@ public class BookSection {
         return false;
     }
 
-    public Book checkOut(String bookTitle) {
+    public Book checkOut(String bookTitle, User user) {
         for(Book book : books) {
             if (book.hasTitle(bookTitle)) {
-                return book.makeUnavailable();
+                Book checkeBook = book.checkOut();
+                if (checkeBook != null)
+                    checkedBooks.put(checkeBook, user);
+                return checkeBook;
             }
         }
         return null;
     }
 
-    public Book checkIn(String bookTitle) {
+    public Book checkIn(String bookTitle, User user) {
         for(Book book : books) {
             if (book.hasTitle(bookTitle)) {
-                return book.makeAvailable();
+                Book checkeBook = book.checkIn();
+                if (checkeBook != null)
+                    checkedBooks.remove(checkeBook);
+                return checkeBook;
             }
         }
         return null;
     }
 
-    public ArrayList<Book> getCheckedOutBooks() {
-        ArrayList<Book> checkedBooks = new ArrayList<Book>();
-        for (Book book : books) {
-            if (!book.isAvailable())
-                checkedBooks.add(book);
-        }
+    public HashMap<Book, User> getCheckedOutBooks() {
         return checkedBooks;
     }
 }

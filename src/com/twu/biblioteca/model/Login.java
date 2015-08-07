@@ -1,7 +1,5 @@
 package com.twu.biblioteca.model;
 
-import com.twu.biblioteca.model.User;
-
 import java.util.ArrayList;
 
 

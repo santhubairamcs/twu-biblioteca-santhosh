@@ -1,12 +1,10 @@
 package com.twu.biblioteca.model;
 
-import com.twu.biblioteca.model.Login;
-import com.twu.biblioteca.model.User;
 import org.junit.Test;
-
 import java.util.ArrayList;
 
 import static org.junit.Assert.*;
+
 
 public class LoginTest {
 

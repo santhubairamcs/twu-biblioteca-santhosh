@@ -16,7 +16,7 @@ public class View {
     }
 
     public void displayBook(Book book) {
-        System.out.format("%-30s%-20s%-10s\n", book.getTitle(), book.getAuthor(), book.getYearOfPublish());
+        System.out.format("%-25s%-25s%-25s\n", book.getTitle(), book.getAuthor(), book.getYearOfPublish());
     }
 
     public void listBooks(ArrayList<Book> books) {
@@ -26,7 +26,7 @@ public class View {
     }
 
     private void displayBookHeader() {
-        System.out.format("%-30s%-20s%-10s\n", "Title", "Author", "YearOfPublish");
+        System.out.format("%-25s%-25s%-25s\n", "Title", "Author", "YearOfPublish");
     }
 
     public String getUserInput() {
@@ -67,7 +67,7 @@ public class View {
     }
 
     public void displayCheckOutMoviesList(ArrayList<Movie> checkedOutBooks) {
-        System.out.format("%-30s%-20s%-10s%-10s\n", "Title", "Director", "YearOfPublish", "Rating");
+        System.out.format("%-25s%-25s%-25s%-25s\n", "Title", "Director", "YearOfPublish", "Rating");
         for (Movie movie : checkedOutBooks) {
             System.out.println(movie.toString());
         }
@@ -78,5 +78,10 @@ public class View {
             System.out.println("Thank you for returning the movie");
         else
             System.out.println("That is not a valid movie to return");
+    }
+
+    public void displayUserProfile(String userProfile) {
+        System.out.format("%-25s%-25s%-25s\n", "User Name", "Email", "Mobile Number");
+        System.out.println(userProfile);
     }
 }

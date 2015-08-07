@@ -24,7 +24,7 @@ public class User {
 
     @Override
     public String toString() {
-        return String.format("%-25s%-25s%-25s%-25s", name, email, phone,role );
+        return String.format("%-25s%-25s%-25s", name, email, phone);
     }
 
     public String getRole() {

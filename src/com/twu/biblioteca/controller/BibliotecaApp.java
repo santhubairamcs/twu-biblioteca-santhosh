@@ -32,7 +32,8 @@ public class BibliotecaApp {
     private void userLogin(boolean runUntilQuit) {
         while (true) {
             view.greetUser();
-            view.outputConsole("Choose\n\t1.Login\n\t2.Quit");
+            view.outputConsole("Choose\n\t1.Login\n\t2.Quit\n");
+            view.outputConsole("Enter your choice: ");
             String userChoice = view.getUserInput();
             if (userChoice.equals("1")) {
                 view.outputConsole("Enter Library Number: ");
@@ -111,7 +112,8 @@ public class BibliotecaApp {
                 view.displayCheckOutMoviesList(movieSection.getCheckedOutMovies());
             }
             else if (userChoice.equals((indexOfMenuItem - 1) + "")) {
-                view.outputConsole(user.toString());
+
+                view.displayUserProfile(user.toString());
             }
             else if (userChoice.equals(indexOfMenuItem + "")) {
                 break;

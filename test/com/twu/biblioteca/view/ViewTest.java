@@ -35,7 +35,7 @@ public class ViewTest {
 
         view.displayBook(book);
 
-        assertEquals("A Suitable Boy                Vikram Seth         1993      \n", outContent.toString());
+        assertEquals("A Suitable Boy           Vikram Seth              1993                     \n", outContent.toString());
     }
 
     @Test
@@ -124,9 +124,9 @@ public class ViewTest {
         movies.add(movie2);
         view.displayCheckOutMoviesList(movies);
 
-        assertEquals("Title                         Director            YearOfPublishRating    \n" +
-                "bahubali                      rajamouli           2015      9         \n" +
-                "The Shawshank Redemption      Frank Darabont      1994      9         \n", outContent.toString());
+        assertEquals("Title                    Director                 YearOfPublish            Rating                   \n" +
+                "bahubali                 rajamouli                2015                     9                        \n" +
+                "The Shawshank Redemption Frank Darabont           1994                     9                        \n", outContent.toString());
     }
 
     @Test
@@ -155,5 +155,14 @@ public class ViewTest {
         view.displayCheckInMoviesStatus(null);
 
         assertEquals("That is not a valid movie to return\n", outContent.toString());
+    }
+
+    @Test
+    public void shouldKnowsHowTodisplayUserProfile() {
+        View view = new View();
+
+        view.displayUserProfile("hello");
+
+        assertEquals("User Name                Email                    Mobile Number            \n"+"hello\n", outContent.toString());
     }
 }

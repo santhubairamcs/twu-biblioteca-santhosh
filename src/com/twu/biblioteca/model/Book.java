@@ -32,7 +32,7 @@ public class Book {
         return available;
     }
 
-    public Book makeUnavailable() {
+    public Book checkOut() {
         if(this.available) {
             this.available = false;
             return this;
@@ -40,7 +40,7 @@ public class Book {
         return null;
     }
 
-    public Book makeAvailable() {
+    public Book checkIn() {
         if (!this.available) {
             this.available = true;
             return this;

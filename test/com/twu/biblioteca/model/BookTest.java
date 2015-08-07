@@ -11,7 +11,7 @@ public class BookTest {
     public void shouldChangeAvailableToFalseOnCheckOut() {
         Book book = new Book("11111", "Train to Pakistan", "Khushwant Singh", 1956, true);
 
-        book.makeUnavailable();
+        book.checkOut();
 
         assertEquals(false, book.isAvailable());
     }
@@ -20,7 +20,7 @@ public class BookTest {
     public void shouldChangeAvailableToTrueOnCheckIn() {
         Book book = new Book("11111", "Train to Pakistan", "Khushwant Singh", 1956, false);
 
-        book.makeAvailable();
+        book.checkIn();
 
         assertEquals(true, book.isAvailable());
     }

@@ -6,10 +6,11 @@ import java.util.HashMap;
 
 public class BookSection {
     private ArrayList<Book> books;
-    private HashMap<Book, User> checkedBooks = new HashMap<Book, User>();
+    private HashMap<Book, User> checkedBooks;
 
-    public BookSection(ArrayList<Book> books) {
+    public BookSection(ArrayList<Book> books, HashMap<Book, User> checkedBooks) {
         this.books = books;
+        this.checkedBooks = checkedBooks;
     }
 
     public ArrayList<Book> getBooks() {
@@ -38,8 +39,8 @@ public class BookSection {
     }
 
     public Book checkIn(String bookTitle, User user) {
-        for(Book book : books) {
-            if (book.hasTitle(bookTitle)) {
+        for(Book book : checkedBooks.keySet()) {
+            if (book.hasTitle(bookTitle) && user.equals(checkedBooks.get(book))) {
                 Book checkedBook = book.checkIn();
                 if (checkedBook != null) {
                     checkedBooks.remove(checkedBook);

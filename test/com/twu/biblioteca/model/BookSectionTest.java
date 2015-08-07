@@ -16,7 +16,7 @@ public class BookSectionTest {
         User user = new User("name1", "user1@gmail.com", "1234567890", "000-0001", "12345", "librarian");
         Book book = new Book("11111", "A Suitable Boy", "Vikram Seth ", 1993, true);
         books.add(book);
-        BookSection bookSection = new BookSection(books);
+        BookSection bookSection = new BookSection(books, checkedBooks);
 
         ArrayList<Book> booksFromLibrary = bookSection.getBooks();
 
@@ -31,7 +31,7 @@ public class BookSectionTest {
         User user = new User("name1", "user1@gmail.com", "1234567890", "000-0001", "12345", "librarian");
         Book book = new Book("11111", "A Suitable Boy", "Vikram Seth ", 1993, true);
         books.add(book);
-        BookSection bookSection = new BookSection(books);
+        BookSection bookSection = new BookSection(books, checkedBooks);
 
         assertEquals(true, bookSection.contains("A Suitable Boy"));
     }
@@ -43,7 +43,7 @@ public class BookSectionTest {
         User user = new User("name1", "user1@gmail.com", "1234567890", "000-0001", "12345", "librarian");
         Book book = new Book("11111", "A Suitable Boy", "Vikram Seth ", 1993, true);
         books.add(book);
-        BookSection bookSection = new BookSection(books);
+        BookSection bookSection = new BookSection(books, checkedBooks);
 
         assertEquals(false, bookSection.contains("3 Mistakes of My Life"));
     }
@@ -55,7 +55,7 @@ public class BookSectionTest {
         User user = new User("name1", "user1@gmail.com", "1234567890", "000-0001", "12345", "librarian");
         Book book = new Book("11111", "A Suitable Boy", "Vikram Seth ", 1993, true);
         books.add(book);
-        BookSection bookSection = new BookSection(books);
+        BookSection bookSection = new BookSection(books, checkedBooks);
 
         assertEquals(book, bookSection.checkOut("A Suitable Boy", user));
     }
@@ -69,7 +69,7 @@ public class BookSectionTest {
         Book book2 = new Book("22222", "Cutting For Stone", "Abraham Verghese", 2009, true);
         books.add(book1);
         books.add(book2);
-        BookSection bookSection = new BookSection(books);
+        BookSection bookSection = new BookSection(books, checkedBooks);
 
         assertEquals(null, bookSection.checkOut("3 Mistakes of My Life", user));
     }
@@ -83,7 +83,8 @@ public class BookSectionTest {
         Book book2 = new Book("22222", "Cutting For Stone", "Abraham Verghese", 2009, false);
         books.add(book1);
         books.add(book2);
-        BookSection bookSection = new BookSection(books);
+        checkedBooks.put(book2, user);
+        BookSection bookSection = new BookSection(books, checkedBooks);
 
         bookSection.checkIn("Cutting For Stone", user);
 
@@ -99,7 +100,8 @@ public class BookSectionTest {
         Book book2 = new Book("44444","Train to Pakistan", "Khushwant Singh", 1956, false);
         books.add(book1);
         books.add(book2);
-        BookSection bookSection = new BookSection(books);
+        BookSection bookSection = new BookSection(books, checkedBooks);
+        checkedBooks.put(book2, user);
 
         assertEquals(book2, bookSection.checkIn("Train to Pakistan", user));
     }
@@ -113,7 +115,7 @@ public class BookSectionTest {
         Book book2 = new Book("44444","Train to Pakistan", "Khushwant Singh", 1956, false);
         books.add(book1);
         books.add(book2);
-        BookSection bookSection = new BookSection(books);
+        BookSection bookSection = new BookSection(books, checkedBooks);
 
         assertEquals(null, bookSection.checkIn("Train to China", user));
     }
@@ -127,7 +129,7 @@ public class BookSectionTest {
         Book book2 = new Book("44444","Train to Pakistan", "Khushwant Singh", 1956, true);
         books.add(book1);
         books.add(book2);
-        BookSection bookSection = new BookSection(books);
+        BookSection bookSection = new BookSection(books, checkedBooks);
         checkedBooks.put(bookSection.checkOut("A Suitable Boy", user), user);
         checkedBooks.put(bookSection.checkOut("Train to Pakistan", user), user);
 

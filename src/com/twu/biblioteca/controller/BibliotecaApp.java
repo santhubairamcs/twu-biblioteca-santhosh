@@ -1,6 +1,5 @@
 package com.twu.biblioteca.controller;
 
-import com.twu.biblioteca.model.IssueRegister;
 import com.twu.biblioteca.model.Login;
 import com.twu.biblioteca.model.User;
 import com.twu.biblioteca.model.Book;
@@ -16,7 +15,6 @@ public class BibliotecaApp {
     MovieSection movieSection;
     Login login;
     User user;
-    IssueRegister issueRegister = new IssueRegister();
 
     public BibliotecaApp(View view, BookSection bookSection, MovieSection movieSection, Login login){
         this.view = view;
@@ -71,43 +69,33 @@ public class BibliotecaApp {
             else if(userChoice.equals("2")) {
                 view.outputConsole("Enter book name: ");
                 String bookTitle = view.getUserInput();
-                Book book = bookSection.checkOut(bookTitle);
-                if (book != null)
-                    issueRegister.addEntry(bookTitle, user);
+                Book book = bookSection.checkOut(bookTitle, user);
                 view.displayCheckOutStatus(book);
             }
             else if (userChoice.equals("3")) {
                 view.outputConsole("Enter book name: ");
                 String book = view.getUserInput();
-                if (issueRegister.checkEntry(book, user))
-                    view.displayCheckInStatus(bookSection.checkIn(book));
-                else
-                    view.outputConsole("You are not authorised to checkin this book");
+                view.displayCheckInStatus(bookSection.checkIn(book, user));
             }
             else if (userChoice.equals("4")) {
-                view.displayCheckOutMoviesList(movieSection.getMovies());
+                view.displayMoviesList(movieSection.getMovies());
             }
             else if (userChoice.equals("5")) {
                 view.outputConsole("Enter movie name: ");
                 String movieTitle = view.getUserInput();
-                Movie movie = movieSection.checkout(movieTitle);
-                if (movie != null)
-                    issueRegister.addEntry(movieTitle, user);
+                Movie movie = movieSection.checkOut(movieTitle, user);
                 view.displayMovieCheckOutStatus(movie);
             }
             else if (userChoice.equals("6")) {
                 view.outputConsole("Enter movie name: ");
                 String movie = view.getUserInput();
-                if (issueRegister.checkEntry(movie, user))
-                    view.displayCheckInMoviesStatus(movieSection.checkin(movie));
-                else
-                    view.outputConsole("You are not authorised to checkin this movie");
+                    view.displayCheckInMoviesStatus(movieSection.checkIn(movie, user));
             }
             else if (userChoice.equals("7") && "librarian".equals(user.getRole())) {
-                view.listBooks(bookSection.getCheckedOutBooks());
+                view.displayCheckedBooks(bookSection.getCheckedOutBooks());
             }
             else if (userChoice.equals("8") && "librarian".equals(user.getRole())) {
-                view.displayCheckOutMoviesList(movieSection.getCheckedOutMovies());
+                view.displayCheckedMoviesList(movieSection.getCheckedOutMovies());
             }
             else if (userChoice.equals((indexOfMenuItem - 1) + "")) {
 

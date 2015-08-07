@@ -39,6 +39,10 @@ public class Movie {
         return available;
     }
 
+    public String getTitle() {
+        return title;
+    }
+
     @Override
     public String toString() {
         return String.format("%-25s%-25s%-25s%-25s", title, director, yearOfRelease, rating);

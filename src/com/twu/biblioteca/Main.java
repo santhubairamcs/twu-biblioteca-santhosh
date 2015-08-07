@@ -5,6 +5,7 @@ import com.twu.biblioteca.model.*;
 import com.twu.biblioteca.view.View;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 
 
 public class Main {
@@ -20,13 +21,15 @@ public class Main {
         books.add(book3);
         books.add(book4);
         View view = new View();
-        BookSection bookSection = new BookSection(books);
+        HashMap<Book, User> checkedBooks = new HashMap<Book, User>();
+        BookSection bookSection = new BookSection(books, checkedBooks);
         ArrayList<Movie> availableMovies = new ArrayList<Movie>();
         Movie movie1 = new Movie("bahubali", "rajamouli", 2015, 9, true);
         Movie movie2 = new Movie("The Shawshank Redemption", "Frank Darabont", 1994, 9, true);
         availableMovies.add(movie1);
         availableMovies.add(movie2);
-        MovieSection movieSection = new MovieSection(availableMovies);
+        HashMap<Movie, User> checkedMovies = new HashMap<Movie, User>();
+        MovieSection movieSection = new MovieSection(availableMovies, checkedMovies);
         ArrayList<User> users = new ArrayList<User>();
         User user1 = new User("name1", "user1@gmail.com", "1234567890", "000-0001", "12345", "librarian");
         User user2 = new User("name2", "user2@gmail.com", "0987654321", "001-0001", "12345", "user");

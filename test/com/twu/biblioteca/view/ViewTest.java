@@ -3,10 +3,12 @@ package com.twu.biblioteca.view;
 import com.twu.biblioteca.model.Book;
 import com.twu.biblioteca.model.BookSection;
 import com.twu.biblioteca.model.Movie;
+import com.twu.biblioteca.model.User;
 import org.junit.Before;
 import org.junit.Test;
 import java.io.*;
 import java.util.ArrayList;
+import java.util.HashMap;
 
 import static org.junit.Assert.assertEquals;
 
@@ -43,7 +45,8 @@ public class ViewTest {
         Book book = new Book("11111", "A Suitable Boy", "Vikram Seth", 1993, true);
         ArrayList<Book> books = new ArrayList<Book>();
         books.add(book);
-        BookSection bookSection = new BookSection(books);
+        HashMap<Book, User> checkedBooks = new HashMap<Book, User>();
+        BookSection bookSection = new BookSection(books, checkedBooks);
 
         assertEquals(books, bookSection.getBooks());
     }
@@ -122,10 +125,9 @@ public class ViewTest {
         Movie movie2 = new Movie("The Shawshank Redemption", "Frank Darabont", 1994, 9, false);
         movies.add(movie1);
         movies.add(movie2);
-        view.displayCheckOutMoviesList(movies);
+        view.displayMoviesList(movies);
 
-        assertEquals("Title                    Director                 YearOfPublish            Rating                   \n" +
-                "bahubali                 rajamouli                2015                     9                        \n" +
+        assertEquals("bahubali                 rajamouli                2015                     9                        \n" +
                 "The Shawshank Redemption Frank Darabont           1994                     9                        \n", outContent.toString());
     }
 
@@ -164,5 +166,18 @@ public class ViewTest {
         view.displayUserProfile("hello");
 
         assertEquals("User Name                Email                    Mobile Number            \n"+"hello\n", outContent.toString());
+    }
+
+    @Test
+    public void shouldKnowsHowToListCheckedMovies() {
+        View view = new View();
+        HashMap<Movie, User> movies = new HashMap<Movie, User>();
+        Movie movie1 = new Movie("bahubali", "rajamouli", 2015, 9, false);
+        Movie movie2 = new Movie("The Shawshank Redemption", "Frank Darabont", 1994, 9, false);
+        User user = new User("name1", "user1@gmail.com", "1234567890", "000-0001", "12345", "librarian");
+        movies.put(movie1, user);
+        movies.put(movie2, user);
+
+//        view.displayCheckedBooks(movies);
     }
 }

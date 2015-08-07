@@ -8,6 +8,7 @@ import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.util.ArrayList;
+import java.util.HashMap;
 
 
 public class View {
@@ -67,10 +68,10 @@ public class View {
             System.out.println("That movie is not available");
     }
 
-    public void displayCheckOutMoviesList(ArrayList<Movie> checkedOutBooks) {
-        System.out.format("%-25s%-25s%-25s%-25s\n", "Title", "Director", "YearOfPublish", "Rating");
-        for (Movie movie : checkedOutBooks) {
-            System.out.println(movie.toString());
+    public void displayCheckedMoviesList(HashMap<Movie, User> checkedOutBooks) {
+        System.out.format("%-30s%-25s%-25s%-25s\n", "Movie Title", "Customer Name", "Email", "Phone number");
+        for (Movie movie : checkedOutBooks.keySet()) {
+            System.out.format("%-30s%-100s\n",movie.getTitle(), checkedOutBooks.get(movie));
         }
     }
 
@@ -84,5 +85,18 @@ public class View {
     public void displayUserProfile(String userProfile) {
         System.out.format("%-25s%-25s%-25s\n", "User Name", "Email", "Mobile Number");
         System.out.println(userProfile);
+    }
+
+    public void displayCheckedBooks(HashMap<Book, User> checkedOutBooks) {
+        System.out.format("%-25s%-25s%-25s%-25s\n", "Book Title", "Customer Name", "Email", "Phone number");
+        for (Book book : checkedOutBooks.keySet()) {
+            System.out.format("%-25s%-75s\n", book.getTitle(), checkedOutBooks.get(book));
+        }
+    }
+
+    public void displayMoviesList(ArrayList<Movie> movies) {
+        for (Movie movie : movies) {
+            System.out.println(movie);
+        }
     }
 }

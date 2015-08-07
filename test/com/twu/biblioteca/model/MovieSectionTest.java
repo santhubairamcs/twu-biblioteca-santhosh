@@ -66,33 +66,6 @@ public class MovieSectionTest {
     }
 
     @Test
-    public void shouldKnowsHowToListCheckedOutMovies() {
-        User user = new User("name1", "user1@gmail.com", "1234567890", "000-0001", "12345", "librarian");
-        ArrayList<Movie> availableMovies = new ArrayList<Movie>();
-        Movie movie1 = new Movie("bahubali", "rajamouli", 2015, 9, true);
-        Movie movie2 = new Movie("The Shawshank Redemption", "Frank Darabont", 1994, 9, true);
-        availableMovies.add(movie1);
-        availableMovies.add(movie2);
-        ArrayList<Movie> checkOutAllMoviesList = new ArrayList<Movie>();
-        Movie movie3 = new Movie("bahubali", "rajamouli", 2015, 9, false);
-        Movie movie4 = new Movie("The Shawshank Redemption", "Frank Darabont", 1994, 9, false);
-        checkOutAllMoviesList.add(movie3);
-        checkOutAllMoviesList.add(movie4);
-        HashMap<Movie, User> checkedMovies = new HashMap<Movie, User>();
-        MovieSection movieSection = new MovieSection(availableMovies, checkedMovies);
-
-        movieSection.checkOut("bahubali", user);
-        movieSection.checkOut("The Shawshank Redemption", user);
-        ArrayList<Movie> checked = movieSection.getCheckedOutMovies();
-        Movie list1[] = new Movie[availableMovies.size()];
-        list1 = availableMovies.toArray(list1);
-        Movie list2[] = new Movie[checked.size()];
-        list2 = checked.toArray(list2);
-
-        assertArrayEquals(list1, list2);
-    }
-
-    @Test
     public void shouldKnowsHowToReturnListOfMovies() {
         ArrayList<Movie> movies = new ArrayList<Movie>();
         Movie movie1 = new Movie("bahubali", "rajamouli", 2015, 9, true);

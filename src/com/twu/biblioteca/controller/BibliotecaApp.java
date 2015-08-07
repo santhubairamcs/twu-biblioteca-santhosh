@@ -25,12 +25,12 @@ public class BibliotecaApp {
         this.login = login;
     }
 
-    public void start(boolean runUntilQuit) {
-        userLogin(runUntilQuit);
+    public void start() {
+        while (true)
+            userLogin();
     }
 
-    private void userLogin(boolean runUntilQuit) {
-        while (true) {
+    public void userLogin() {
             view.greetUser();
             view.outputConsole("Choose\n\t1.Login\n\t2.Quit\n");
             view.outputConsole("Enter your choice: ");
@@ -42,7 +42,7 @@ public class BibliotecaApp {
                 String password = view.getUserInput();
                 user = login.authenticate(libraryNumber, password);
                 if (user != null)
-                    menuLoop(runUntilQuit);
+                    menuLoop(true);
                 else
                     view.outputConsole("Invalid login, Try again");
             }
@@ -52,7 +52,6 @@ public class BibliotecaApp {
             else {
                 view.outputConsole("Select a valid option!");
             }
-        }
     }
 
     private void menuLoop(boolean runUntilQuit) {

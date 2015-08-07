@@ -34,6 +34,6 @@ public class Main {
         users.add(user2);
         Login login = new Login(users);
         BibliotecaApp bibliotecaApp = new BibliotecaApp(view , bookSection, movieSection, login);
-        bibliotecaApp.start(true);
+        bibliotecaApp.start();
     }
 }

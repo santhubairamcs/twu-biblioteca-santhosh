@@ -42,7 +42,7 @@ public class BibliotecaApp {
                 String password = view.getUserInput();
                 user = login.authenticate(libraryNumber, password);
                 if (user != null)
-                    menuLoop(true);
+                    menuLoop();
                 else
                     view.outputConsole("Invalid login, Try again");
             }
@@ -54,8 +54,8 @@ public class BibliotecaApp {
             }
     }
 
-    private void menuLoop(boolean runUntilQuit) {
-        while (runUntilQuit) {
+    public void menuLoop() {
+        while (true) {
             int indexOfMenuItem;
             view.outputConsole("\nChoose option\n\t1.ListBooks\n\t2.CheckOut Book\n\t3.CheckIn Book\n\t4.List Movies\n\t5.CheckOut Movie\n\t6.CheckIn Movie");
             indexOfMenuItem = 7;
@@ -64,7 +64,6 @@ public class BibliotecaApp {
                 indexOfMenuItem = 9;
             }
             view.outputConsole("\t" + indexOfMenuItem + ".Profile\n\t" + (++indexOfMenuItem) + ".Logout");
-            view.outputConsole("Enter your choice: ");
             String userChoice = view.getUserInput();
             if (userChoice.equals("1")) {
                 view.listBooks(bookSection.getBooks());

@@ -34,4 +34,13 @@ public class BibliotecaAppTest {
         verify(viewMock).outputConsole("Invalid login, Try again");
     }
 
+    @Test
+    public void shouldKnows(){
+        View viewMock = mock(View.class);
+        Login loginMock = mock(Login.class);
+        BibliotecaApp bibliotecaApp = new BibliotecaApp(viewMock, new BookSection(new ArrayList<Book>()), new MovieSection(new ArrayList<Movie>()), loginMock);
+        when(viewMock.getUserInput()).thenReturn("1");
+        bibliotecaApp.menuLoop();
+        when(loginMock.authenticate("000-0001", "12345")).thenReturn(new User("", "", "", "", "", ""));
+    }
 }

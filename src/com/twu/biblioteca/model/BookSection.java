@@ -27,10 +27,11 @@ public class BookSection {
     public Book checkOut(String bookTitle, User user) {
         for(Book book : books) {
             if (book.hasTitle(bookTitle)) {
-                Book checkeBook = book.checkOut();
-                if (checkeBook != null)
-                    checkedBooks.put(checkeBook, user);
-                return checkeBook;
+                Book checkedBook = book.checkOut();
+                if (checkedBook != null) {
+                    checkedBooks.put(checkedBook, user);
+                    return checkedBook;
+                }
             }
         }
         return null;
@@ -39,10 +40,11 @@ public class BookSection {
     public Book checkIn(String bookTitle, User user) {
         for(Book book : books) {
             if (book.hasTitle(bookTitle)) {
-                Book checkeBook = book.checkIn();
-                if (checkeBook != null)
-                    checkedBooks.remove(checkeBook);
-                return checkeBook;
+                Book checkedBook = book.checkIn();
+                if (checkedBook != null) {
+                    checkedBooks.remove(checkedBook);
+                    return checkedBook;
+                }
             }
         }
         return null;

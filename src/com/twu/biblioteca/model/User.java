@@ -30,4 +30,12 @@ public class User {
     public String getRole() {
         return role;
     }
+
+    public String getLibraryNumber() {
+        return libraryNumber;
+    }
+
+    public boolean equalsTo(User user) {
+        return true;
+    }
 }

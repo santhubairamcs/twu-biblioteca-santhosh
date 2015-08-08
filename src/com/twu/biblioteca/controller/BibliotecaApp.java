@@ -40,7 +40,7 @@ public class BibliotecaApp {
                 String password = view.getUserInput();
                 user = login.authenticate(libraryNumber, password);
                 if (user != null)
-                    menuLoop();
+                    dispatcher();
                 else
                     view.outputConsole("Invalid login, Try again");
             }
@@ -52,53 +52,52 @@ public class BibliotecaApp {
             }
     }
 
-    public void menuLoop() {
-        while (true) {
-            int indexOfMenuItem = view.showMenu(user.getRole());
-            String userChoice = view.getUserInput();
-            if (userChoice.equals("1")) {
-                view.listBooks(bookSection.getBooks());
-            }
-            else if(userChoice.equals("2")) {
-                view.outputConsole("Enter book name: ");
-                String bookTitle = view.getUserInput();
-                Book book = bookSection.checkOut(bookTitle, user);
-                view.displayCheckOutStatus(book);
-            }
-            else if (userChoice.equals("3")) {
-                view.outputConsole("Enter book name: ");
-                String book = view.getUserInput();
-                view.displayCheckInStatus(bookSection.checkIn(book, user));
-            }
-            else if (userChoice.equals("4")) {
-                view.displayMoviesList(movieSection.getMovies());
-            }
-            else if (userChoice.equals("5")) {
-                view.outputConsole("Enter movie name: ");
-                String movieTitle = view.getUserInput();
-                Movie movie = movieSection.checkOut(movieTitle, user);
-                view.displayMovieCheckOutStatus(movie);
-            }
-            else if (userChoice.equals("6")) {
-                view.outputConsole("Enter movie name: ");
-                String movie = view.getUserInput();
-                    view.displayCheckInMoviesStatus(movieSection.checkIn(movie, user));
-            }
-            else if (userChoice.equals("7") && "librarian".equals(user.getRole())) {
-                view.displayCheckedBooks(bookSection.getCheckedOutBooks());
-            }
-            else if (userChoice.equals("8") && "librarian".equals(user.getRole())) {
-                view.displayCheckedMoviesList(movieSection.getCheckedOutMovies());
-            }
-            else if (userChoice.equals((indexOfMenuItem - 1) + "")) {
-
-                view.displayUserProfile(user.toString());
-            }
-            else if (userChoice.equals(indexOfMenuItem + "")) {
-                break;
-            }
-            else
-                view.outputConsole("Select a valid option!");
+    public void dispatcher() {
+        int indexOfMenuItem = view.showMenu(user.getRole());
+        String userChoice = view.getUserInput();
+        if (userChoice.equals("1")) {
+            view.listBooks(bookSection.getBooks());
         }
+        else if(userChoice.equals("2")) {
+            view.outputConsole("Enter book name: ");
+            String bookTitle = view.getUserInput();
+            Book book = bookSection.checkOut(bookTitle, user);
+            view.displayCheckOutStatus(book);
+        }
+        else if (userChoice.equals("3")) {
+            view.outputConsole("Enter book name: ");
+            String book = view.getUserInput();
+            view.displayCheckInStatus(bookSection.checkIn(book, user));
+        }
+        else if (userChoice.equals("4")) {
+            view.displayMoviesList(movieSection.getMovies());
+        }
+        else if (userChoice.equals("5")) {
+            view.outputConsole("Enter movie name: ");
+            String movieTitle = view.getUserInput();
+            Movie movie = movieSection.checkOut(movieTitle, user);
+            view.displayMovieCheckOutStatus(movie);
+        }
+        else if (userChoice.equals("6")) {
+            view.outputConsole("Enter movie name: ");
+            String movie = view.getUserInput();
+            view.displayCheckInMoviesStatus(movieSection.checkIn(movie, user));
+        }
+        else if (userChoice.equals("7") && "librarian".equals(user.getRole())) {
+            view.displayCheckedBooks(bookSection.getCheckedOutBooks());
+        }
+        else if (userChoice.equals("8") && "librarian".equals(user.getRole())) {
+            view.displayCheckedMoviesList(movieSection.getCheckedOutMovies());
+        }
+        else if (userChoice.equals((indexOfMenuItem - 1) + "")) {
+
+            view.displayUserProfile(user.toString());
+        }
+        else if (userChoice.equals(indexOfMenuItem + "")) {
+            userLogin();
+        }
+        else
+            view.outputConsole("Select a valid option!");
+        dispatcher();
     }
 }

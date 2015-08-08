@@ -47,7 +47,7 @@ public class BibliotecaAppTest {
         HashMap<Movie, User> checkedMovies = new HashMap<Movie, User>();
         BibliotecaApp bibliotecaApp = new BibliotecaApp(viewMock, new BookSection(new ArrayList<Book>(), checkedBooks), new MovieSection(new ArrayList<Movie>(), checkedMovies), loginMock);
         when(viewMock.getUserInput()).thenReturn("1");
-        bibliotecaApp.menuLoop();
+        bibliotecaApp.dispatcher();
         when(loginMock.authenticate("000-0001", "12345")).thenReturn(new User("", "", "", "", "", ""));
     }
 }

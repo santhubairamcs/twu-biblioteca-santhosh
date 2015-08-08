@@ -93,4 +93,13 @@ public class BibliotecaAppTest {
         verify(movieSectionMock).checkOut(anyString(), eq(user));
         verify(viewMock).displayMovieCheckOutStatus(movie);
     }
+
+    @Test
+    public void shouldKnowsHowToHandleUserChoiceToCheckInMovie(){
+        when(viewMock.getUserInput()).thenReturn(anyString());
+        when(movieSectionMock.checkIn(anyString(), user)).thenReturn(movie);
+        bibliotecaApp.dispatcher(user, "6");
+        verify(movieSectionMock).checkIn(anyString(), eq(user));
+        verify(viewMock).displayCheckInMoviesStatus(movie);
+    }
 }

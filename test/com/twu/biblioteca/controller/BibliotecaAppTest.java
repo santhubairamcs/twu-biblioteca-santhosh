@@ -6,6 +6,7 @@ import org.junit.Before;
 import org.junit.Test;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 
 import static org.mockito.Mockito.*;
 
@@ -101,5 +102,13 @@ public class BibliotecaAppTest {
         bibliotecaApp.dispatcher(user, "6");
         verify(movieSectionMock).checkIn(anyString(), eq(user));
         verify(viewMock).displayCheckInMoviesStatus(movie);
+    }
+
+    @Test
+    public void shouldKnowsHowToHandleUserChoiceToGetCheckedBooks(){
+        when(bookSectionMock.getCheckedOutBooks()).thenReturn(new HashMap<Book, User>());
+        bibliotecaApp.dispatcher(user, "7");
+        verify(bookSectionMock).getCheckedOutBooks();
+        verify(viewMock).displayCheckedBooks(new HashMap<Book, User>());
     }
 }

@@ -18,7 +18,7 @@ public class BibliotecaAppTest {
     MovieSection movieSectionMock;
     User user, userMock;
     Book book;
-    Book bookMock;
+    Movie movie;
 
     @Before
     public void setUp() {
@@ -30,7 +30,8 @@ public class BibliotecaAppTest {
         user = new User("name1", "user1@gmail.com", "1234567890", "000-0001", "12345", "librarian");
         userMock = mock(User.class);
         book = new Book("22222", "Cutting For Stone", "Abraham Verghese", 2009, true);
-        bookMock = mock(Book.class);
+        movie = new Movie("The Shawshank Redemption", "Frank Darabont", 1994, 9, true);
+
     }
 
     @Test
@@ -82,5 +83,14 @@ public class BibliotecaAppTest {
         bibliotecaApp.dispatcher(user, "4");
         verify(movieSectionMock).getMovies();
         verify(viewMock).displayMoviesList(new ArrayList<Movie>());
+    }
+
+    @Test
+    public void shouldKnowsHowToHandleUserChoiceToCheckOutMovie(){
+        when(viewMock.getUserInput()).thenReturn(anyString());
+        when(movieSectionMock.checkOut(anyString(), user)).thenReturn(movie);
+        bibliotecaApp.dispatcher(user, "5");
+        verify(movieSectionMock).checkOut(anyString(), eq(user));
+        verify(viewMock).displayMovieCheckOutStatus(movie);
     }
 }

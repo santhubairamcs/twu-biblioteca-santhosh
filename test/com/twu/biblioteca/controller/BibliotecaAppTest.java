@@ -17,6 +17,8 @@ public class BibliotecaAppTest {
     BookSection bookSectionMock;
     MovieSection movieSectionMock;
     User user, userMock;
+    Book book;
+    Book bookMock;
 
     @Before
     public void setUp() {
@@ -27,6 +29,8 @@ public class BibliotecaAppTest {
         bibliotecaApp = new BibliotecaApp(viewMock, bookSectionMock, movieSectionMock, loginMock);
         user = new User("name1", "user1@gmail.com", "1234567890", "000-0001", "12345", "librarian");
         userMock = mock(User.class);
+        book = new Book("22222", "Cutting For Stone", "Abraham Verghese", 2009, true);
+        bookMock = mock(Book.class);
     }
 
     @Test
@@ -48,9 +52,18 @@ public class BibliotecaAppTest {
 
     @Test
     public void shouldKnowsHowToHandleUserChoiceToListBooks(){
-        when(viewMock.getUserInput()).thenReturn("1");
         bibliotecaApp.dispatcher(user, "1");
         verify(bookSectionMock).getBooks();
         verify(viewMock).listBooks(new ArrayList<Book>());
+    }
+
+    @Test
+    public void shouldKnowsHowToHandleUserChoiceToCheckOutBook(){
+        when(viewMock.getUserInput()).thenReturn(anyString());
+        when(bookSectionMock.checkOut(anyString(), user)).thenReturn(book);
+        bibliotecaApp.dispatcher(user, "2");
+        verify(bookSectionMock).checkOut(anyString(), eq(user));
+        verify(viewMock).displayCheckOutStatus(book);
+
     }
 }

@@ -69,8 +69,7 @@ public class BibliotecaApp {
         else if(userChoice.equals("2")) {
             view.outputConsole("Enter book name: ");
             String bookTitle = view.getUserInput();
-            Book book = bookSection.checkOut(bookTitle, user);
-            view.displayCheckOutStatus(book);
+            view.displayCheckOutStatus(bookSection.checkOut(bookTitle, user));
         }
         else if (userChoice.equals("3")) {
             view.outputConsole("Enter book name: ");

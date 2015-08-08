@@ -54,14 +54,7 @@ public class BibliotecaApp {
 
     public void menuLoop() {
         while (true) {
-            int indexOfMenuItem;
-            view.outputConsole("\nChoose option\n\t1.ListBooks\n\t2.CheckOut Book\n\t3.CheckIn Book\n\t4.List Movies\n\t5.CheckOut Movie\n\t6.CheckIn Movie");
-            indexOfMenuItem = 7;
-            if ("librarian".equals(user.getRole())) {
-                view.outputConsole("\t7.List CheckedOut Books\n\t8.List CheckedOut Movies");
-                indexOfMenuItem = 9;
-            }
-            view.outputConsole("\t" + indexOfMenuItem + ".Profile\n\t" + (++indexOfMenuItem) + ".Logout");
+            int indexOfMenuItem = view.showMenu(user.getRole());
             String userChoice = view.getUserInput();
             if (userChoice.equals("1")) {
                 view.listBooks(bookSection.getBooks());

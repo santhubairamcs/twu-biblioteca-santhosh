@@ -75,4 +75,12 @@ public class BibliotecaAppTest {
         verify(bookSectionMock).checkIn(anyString(), eq(user));
         verify(viewMock).displayCheckInStatus(book);
     }
+
+    @Test
+    public void shouldKnowsHowToHandleUserChoiceToListMovies(){
+        when(movieSectionMock.getMovies()).thenReturn(new ArrayList<Movie>());
+        bibliotecaApp.dispatcher(user, "4");
+        verify(movieSectionMock).getMovies();
+        verify(viewMock).displayMoviesList(new ArrayList<Movie>());
+    }
 }

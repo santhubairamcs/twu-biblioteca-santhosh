@@ -40,7 +40,7 @@ public class BibliotecaApp {
                 String password = view.getUserInput();
                 user = login.authenticate(libraryNumber, password);
                 if (user != null)
-                    dispatcher();
+                    dispatcher(user);
                 else
                     view.outputConsole("Invalid login, Try again");
             }
@@ -52,8 +52,9 @@ public class BibliotecaApp {
             }
     }
 
-    public void dispatcher() {
-        int indexOfMenuItem = view.showMenu(user.getRole());
+    public void dispatcher(User user) {
+        String role = user.getRole();
+        int indexOfMenuItem = view.showMenu("librarian");
         String userChoice = view.getUserInput();
         if (userChoice.equals("1")) {
             view.listBooks(bookSection.getBooks());
@@ -98,6 +99,6 @@ public class BibliotecaApp {
         }
         else
             view.outputConsole("Select a valid option!");
-        dispatcher();
+        dispatcher(user);
     }
 }

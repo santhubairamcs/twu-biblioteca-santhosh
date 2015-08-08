@@ -1,44 +1,41 @@
 package com.twu.biblioteca.model;
 
+import org.junit.Before;
 import org.junit.Test;
 
 import static org.junit.Assert.*;
 
 
 public class MovieTest {
+    private Movie movie;
+
+    @Before
+    public void setUp() {
+        movie = new Movie("The Shawshank Redemption", "Frank Darabont", 1994, 9, true);
+    }
 
     @Test
     public void shouldKnowsHowToCheckExistedMovieByTitle() {
-        Movie movie = new Movie("The Shawshank Redemption", "Frank Darabont", 1994, 9, true);
-
         assertEquals(true, movie.hasTitle("The Shawshank Redemption"));
     }
 
     @Test
     public void shouldKnowsHowToCheckNotExistedMovieByTitle() {
-        Movie movie = new Movie("The Shawshank Redemption", "Frank Darabont", 1994, 9, true);
-
         assertEquals(false, movie.hasTitle("The Shawshank"));
     }
 
     @Test
     public void shouldKnowsHowToMakeAMovieUnavailable() {
-        Movie movie = new Movie("The Shawshank Redemption", "Frank Darabont", 1994, 9, true);
-
         assertEquals(movie, movie.checkOut());
     }
 
     @Test
     public void shouldKnowsHowWhetherMovieIsAvailable() {
-        Movie movie = new Movie("The Shawshank Redemption", "Frank Darabont", 1994, 9, true);
-
         assertEquals(true, movie.isavailable());
     }
 
     @Test
     public void shouldKnowsHowToMakeMovieAvailable() {
-        Movie movie = new Movie("The Shawshank Redemption", "Frank Darabont", 1994, 9, false);
-
         movie.checkIn();
 
         assertEquals(true, movie.isavailable());

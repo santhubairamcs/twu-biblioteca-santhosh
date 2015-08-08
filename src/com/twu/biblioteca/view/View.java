@@ -68,7 +68,7 @@ public class View {
             System.out.println("That movie is not available");
     }
 
-    public void displayCheckedMoviesList(HashMap<Movie, User> checkedOutBooks) {
+    public void displayCheckedMovies(HashMap<Movie, User> checkedOutBooks) {
         System.out.format("%-30s%-25s%-25s%-25s\n", "Movie Title", "Customer Name", "Email", "Phone number");
         for (Movie movie : checkedOutBooks.keySet()) {
             System.out.format("%-30s%-100s\n",movie.getTitle(), checkedOutBooks.get(movie));

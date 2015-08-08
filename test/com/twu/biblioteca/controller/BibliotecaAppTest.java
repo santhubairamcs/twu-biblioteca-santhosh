@@ -111,4 +111,12 @@ public class BibliotecaAppTest {
         verify(bookSectionMock).getCheckedOutBooks();
         verify(viewMock).displayCheckedBooks(new HashMap<Book, User>());
     }
+
+    @Test
+    public void shouldKnowsHowToHandleUserChoiceToGetCheckedMovies(){
+        when(movieSectionMock.getCheckedOutMovies()).thenReturn(new HashMap<Movie, User>());
+        bibliotecaApp.dispatcher(user, "8");
+        verify(movieSectionMock).getCheckedOutMovies();
+        verify(viewMock).displayCheckedMovies(new HashMap<Movie, User>());
+    }
 }

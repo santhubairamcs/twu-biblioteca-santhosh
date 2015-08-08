@@ -2,7 +2,6 @@ package com.twu.biblioteca.controller;
 
 import com.twu.biblioteca.model.Login;
 import com.twu.biblioteca.model.User;
-import com.twu.biblioteca.model.Book;
 import com.twu.biblioteca.model.BookSection;
 import com.twu.biblioteca.model.Movie;
 import com.twu.biblioteca.model.MovieSection;
@@ -94,7 +93,7 @@ public class BibliotecaApp {
             view.displayCheckedBooks(bookSection.getCheckedOutBooks());
         }
         else if (userChoice.equals("8") && "librarian".equals(user.getRole())) {
-            view.displayCheckedMoviesList(movieSection.getCheckedOutMovies());
+            view.displayCheckedMovies(movieSection.getCheckedOutMovies());
         }
         else if (userChoice.equals((indexOfMenuItem - 1) + "")) {
 

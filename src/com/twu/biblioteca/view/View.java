@@ -99,4 +99,11 @@ public class View {
             System.out.println(movie);
         }
     }
+
+    public int showMenu(String userRole) {
+        int indexOfMenuItem = 7;
+        outputConsole("\nChoose option\n\t1.ListBooks\n\t2.CheckOut Book\n\t3.CheckIn Book\n\t4.List Movies\n\t5.CheckOut Movie\n\t6.CheckIn Movie");
+        outputConsole("\t" + indexOfMenuItem + ".Profile\n\t" + (++indexOfMenuItem) + ".Logout");
+        return indexOfMenuItem;
+    }
 }

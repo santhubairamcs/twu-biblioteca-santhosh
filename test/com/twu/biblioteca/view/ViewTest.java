@@ -175,9 +175,20 @@ public class ViewTest {
         Movie movie1 = new Movie("bahubali", "rajamouli", 2015, 9, false);
         Movie movie2 = new Movie("The Shawshank Redemption", "Frank Darabont", 1994, 9, false);
         User user = new User("name1", "user1@gmail.com", "1234567890", "000-0001", "12345", "librarian");
-        movies.put(movie1, user);
         movies.put(movie2, user);
+        movies.put(movie1, user);
 
-//        view.displayCheckedBooks(movies);
+        view.displayCheckedMoviesList(movies);
+
+        assertEquals("Movie Title                   Customer Name            Email                    Phone number             \n" +
+                "The Shawshank Redemption      name1                    user1@gmail.com          1234567890                                        \n" +
+                "bahubali                      name1                    user1@gmail.com          1234567890                                        \n", outContent.toString());
+    }
+
+    @Test
+    public void shouldKnowsWhichMenuToPrintForNormalUser() {
+        View view = new View();
+
+        assertEquals(8, view.showMenu("user"));
     }
 }

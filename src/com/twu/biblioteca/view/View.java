@@ -95,6 +95,7 @@ public class View {
     }
 
     public void displayMoviesList(ArrayList<Movie> movies) {
+        System.out.format("%-25s%-25s%-25s%-25s\n", "Movie Title", "Director", "Year Of Release", "Rating");
         for (Movie movie : movies) {
             System.out.println(movie);
         }

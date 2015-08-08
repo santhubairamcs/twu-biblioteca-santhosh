@@ -127,7 +127,8 @@ public class ViewTest {
         movies.add(movie2);
         view.displayMoviesList(movies);
 
-        assertEquals("bahubali                 rajamouli                2015                     9                        \n" +
+        assertEquals("Movie Title              Director                 Year Of Release          Rating                   \n" +
+                "bahubali                 rajamouli                2015                     9                        \n" +
                 "The Shawshank Redemption Frank Darabont           1994                     9                        \n", outContent.toString());
     }
 

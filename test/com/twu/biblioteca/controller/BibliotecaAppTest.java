@@ -66,4 +66,13 @@ public class BibliotecaAppTest {
         verify(viewMock).displayCheckOutStatus(book);
 
     }
+
+    @Test
+    public void shouldKnowsHowToHandleUserChoiceToCheckInBook(){
+        when(viewMock.getUserInput()).thenReturn(anyString());
+        when(bookSectionMock.checkIn(anyString(), user)).thenReturn(book);
+        bibliotecaApp.dispatcher(user, "3");
+        verify(bookSectionMock).checkIn(anyString(), eq(user));
+        verify(viewMock).displayCheckInStatus(book);
+    }
 }

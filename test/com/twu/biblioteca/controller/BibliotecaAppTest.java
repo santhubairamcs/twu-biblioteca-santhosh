@@ -119,4 +119,10 @@ public class BibliotecaAppTest {
         verify(movieSectionMock).getCheckedOutMovies();
         verify(viewMock).displayCheckedMovies(new HashMap<Movie, User>());
     }
+
+    @Test
+    public void shouldKnowsHowToHandleUserChoiceToProfile(){
+        bibliotecaApp.dispatcher(user, "999");
+        verify(viewMock).outputConsole(anyString());
+    }
 }

@@ -5,6 +5,8 @@ import com.twu.biblioteca.view.View;
 import org.junit.Before;
 import org.junit.Test;
 
+import java.util.ArrayList;
+
 import static org.mockito.Mockito.*;
 
 
@@ -42,5 +44,13 @@ public class BibliotecaAppTest {
         verify(loginMock).authenticate("1", "1");
         when(loginMock.authenticate("000-0001", "12345")).thenReturn(null);
         verify(viewMock).outputConsole("Invalid login, Try again");
+    }
+
+    @Test
+    public void shouldKnowsHowToHandleUserChoiceToListBooks(){
+        when(viewMock.getUserInput()).thenReturn("1");
+        bibliotecaApp.dispatcher(user, "1");
+        verify(bookSectionMock).getBooks();
+        verify(viewMock).listBooks(new ArrayList<Book>());
     }
 }

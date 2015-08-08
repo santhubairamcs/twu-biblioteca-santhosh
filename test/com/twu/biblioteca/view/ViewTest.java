@@ -188,4 +188,11 @@ public class ViewTest {
 
         assertEquals(8, view.showMenu("user"));
     }
+
+    @Test
+    public void shouldKnowsWhichMenuToPrintForLibrarian() {
+        View view = new View();
+
+        assertEquals(10, view.showMenu("librarian"));
+    }
 }

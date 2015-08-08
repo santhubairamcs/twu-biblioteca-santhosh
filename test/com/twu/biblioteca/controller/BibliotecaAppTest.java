@@ -121,7 +121,7 @@ public class BibliotecaAppTest {
     }
 
     @Test
-    public void shouldKnowsHowToHandleUserChoiceToProfile(){
+    public void shouldKnowsHowToHandleInvalidUserChoice(){
         bibliotecaApp.dispatcher(user, "999");
         verify(viewMock).outputConsole(anyString());
     }

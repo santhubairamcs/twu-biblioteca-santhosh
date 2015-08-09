@@ -10,25 +10,22 @@ import java.io.InputStreamReader;
 import java.util.ArrayList;
 import java.util.HashMap;
 
+import static com.twu.biblioteca.Messages.*;
 
 public class View {
 
     public void greetUser() {
-        System.out.println("Welcome to Biblioteca");
-    }
-
-    public void displayBook(Book book) {
-        System.out.format("%-25s%-25s%-25s\n", book.getTitle(), book.getAuthor(), book.getYearOfPublish());
+        System.out.println(WELCOME_MESSAGE);
     }
 
     public void listBooks(ArrayList<Book> books) {
         displayBookHeader();
         for (Book book : books)
-            displayBook(book);
+            System.out.println(book);
     }
 
     private void displayBookHeader() {
-        System.out.format("%-25s%-25s%-25s\n", "Title", "Author", "YearOfPublish");
+        System.out.println(BOOK_HEADER);
     }
 
     public String getUserInput() {
@@ -49,53 +46,53 @@ public class View {
 
     public void displayCheckOutStatus(Book book) {
         if (book != null)
-            System.out.println("Thank you! Enjoy the book");
+            System.out.println(BOOK_CHECKOUT_SUCCESSFUL);
         else
-            System.out.println("That book is not available");
+            System.out.println(BOOK_CHECKOUT_UNSUCCESSFUL);
     }
 
     public void displayCheckInStatus(Book book) {
         if (book != null)
-            System.out.println("Thank you for returning the book");
+            System.out.println(BOOK_CHECKIN_SUCCESSFUL);
         else
-            System.out.println("That is not a valid book to return");
+            System.out.println(BOOK_CHECKIN_UNSUCCESSFUL);
     }
 
     public void displayMovieCheckOutStatus(Movie movie) {
         if (movie != null)
-            System.out.println("Thank you! Enjoy the movie");
+            System.out.println(MOVIE_CHECKOUT_SUCCESSFUL);
         else
-            System.out.println("That movie is not available");
+            System.out.println(MOVIE_CHECKOUT_UNSUCCESSFUL);
     }
 
     public void displayCheckedMovies(HashMap<Movie, User> checkedOutBooks) {
-        System.out.format("%-30s%-25s%-25s%-25s\n", "Movie Title", "Customer Name", "Email", "Phone number");
+        System.out.println(CHECKOUT_MOVIE_HEADER);
         for (Movie movie : checkedOutBooks.keySet()) {
-            System.out.format("%-30s%-100s\n",movie.getTitle(), checkedOutBooks.get(movie));
+            System.out.format(CHECKOUT_MOVIE_FORMAT, movie.getTitle(), checkedOutBooks.get(movie));
         }
     }
 
     public void displayCheckInMoviesStatus(Movie movie) {
         if (movie != null)
-            System.out.println("Thank you for returning the movie");
+            System.out.println(MOVIE_CHECKIN_SUCCESSFUL);
         else
-            System.out.println("That is not a valid movie to return");
+            System.out.println(MOVIE_CHECKIN_UNSUCCESSFUL);
     }
 
     public void displayUserProfile(String userProfile) {
-        System.out.format("%-25s%-25s%-25s\n", "User Name", "Email", "Mobile Number");
+        System.out.println(USER_DETAILS_HEADER);
         System.out.println(userProfile);
     }
 
     public void displayCheckedBooks(HashMap<Book, User> checkedOutBooks) {
-        System.out.format("%-25s%-25s%-25s%-25s\n", "Book Title", "Customer Name", "Email", "Phone number");
+        System.out.println(CHECKOUT_BOOK_HEADER);
         for (Book book : checkedOutBooks.keySet()) {
             System.out.format("%-25s%-75s\n", book.getTitle(), checkedOutBooks.get(book));
         }
     }
 
     public void displayMoviesList(ArrayList<Movie> movies) {
-        System.out.format("%-25s%-25s%-25s%-25s\n", "Movie Title", "Director", "Year Of Release", "Rating");
+        System.out.println(MOVIE_HEADER);
         for (Movie movie : movies) {
             System.out.println(movie);
         }

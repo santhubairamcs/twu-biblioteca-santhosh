@@ -27,18 +27,9 @@ public class ViewTest {
 
         view.greetUser();
 
-        assertEquals("Welcome to Biblioteca\n", outContent.toString());
+        assertEquals("Welcome to Bangalore Public Library\n", outContent.toString());
     }
 
-    @Test
-    public void shouldKnowsHowToShowOutputBook() {
-        View view = new View();
-        Book book = new Book("11111", "A Suitable Boy", "Vikram Seth", 1993, true);
-
-        view.displayBook(book);
-
-        assertEquals("A Suitable Boy           Vikram Seth              1993                     \n", outContent.toString());
-    }
 
     @Test
     public void shouldKnowsHowToShowOutputBooksList() {
@@ -178,9 +169,8 @@ public class ViewTest {
         movies.put(movie1, user);
         view.displayCheckedMovies(movies);
 
-        assertEquals("Movie Title                   Customer Name            Email                    Phone number             \n" +
-                "bahubali                      name1                    user1@gmail.com          1234567890                                        \n"
-                , outContent.toString());
+        assertEquals("Movie Title              Customer Name            Email                    Phone number             \n" +
+                "bahubali                 name1                    user1@gmail.com          1234567890                                        ", outContent.toString());
     }
 
     @Test

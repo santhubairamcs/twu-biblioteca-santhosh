@@ -7,6 +7,7 @@ import com.twu.biblioteca.model.Movie;
 import com.twu.biblioteca.model.MovieSection;
 import com.twu.biblioteca.view.View;
 
+import static com.twu.biblioteca.Messages.*;
 
 public class BibliotecaApp {
     View view ;
@@ -14,6 +15,7 @@ public class BibliotecaApp {
     MovieSection movieSection;
     Login login;
     User user;
+    int indexOfMenuItem;
 
     public BibliotecaApp(View view, BookSection bookSection, MovieSection movieSection, Login login){
         this.view = view;
@@ -29,49 +31,48 @@ public class BibliotecaApp {
 
     public void userLogin() {
             view.greetUser();
-            view.outputConsole("Choose\n\t1.Login\n\t2.Quit\n");
-            view.outputConsole("Enter your choice: ");
+            view.outputConsole(LOGIN_MENU);
+            view.outputConsole(ENTER_YOUR_CHOICE);
             String userChoice = view.getUserInput();
             if (userChoice.equals("1")) {
-                view.outputConsole("Enter Library Number: ");
+                view.outputConsole(LIBRARY_NUMBER_PROMPT);
                 String libraryNumber = view.getUserInput();
-                view.outputConsole("Enter password: ");
+                view.outputConsole(PASSWORD_PROMPT);
                 String password = view.getUserInput();
                 user = login.authenticate(libraryNumber, password);
                 if (user != null)
                     mainMenuHandler(user);
                 else
-                    view.outputConsole("Invalid login, Try again");
+                    view.outputConsole(INVALID_LOGIN);
             }
             else if (userChoice.equals("2")) {
                 System.exit(0);
             }
             else {
-                view.outputConsole("Select a valid option!");
+                view.outputConsole(INVALID_OPTION);
             }
     }
 
     private void mainMenuHandler(User user) {
         String userChoice;
         do {
-            int indexOfMenuItem = view.showMenu(user.getRole());
+            indexOfMenuItem = view.showMenu(user.getRole());
             userChoice = view.getUserInput();
             dispatcher(user, userChoice);
         } while (!userChoice.equals("0"));
     }
 
     public void dispatcher(User user, String userChoice) {
-        int indexOfMenuItem = 7;
         if (userChoice.equals("1")) {
             view.listBooks(bookSection.getBooks());
         }
         else if(userChoice.equals("2")) {
-            view.outputConsole("Enter book name: ");
+            view.outputConsole(BOOK_PROMPT);
             String bookTitle = view.getUserInput();
             view.displayCheckOutStatus(bookSection.checkOut(bookTitle, user));
         }
         else if (userChoice.equals("3")) {
-            view.outputConsole("Enter book name: ");
+            view.outputConsole(BOOK_PROMPT);
             String book = view.getUserInput();
             view.displayCheckInStatus(bookSection.checkIn(book, user));
         }
@@ -79,13 +80,13 @@ public class BibliotecaApp {
             view.displayMoviesList(movieSection.getMovies());
         }
         else if (userChoice.equals("5")) {
-            view.outputConsole("Enter movie name: ");
+            view.outputConsole(MOVIE_PROMPT);
             String movieTitle = view.getUserInput();
             Movie movie = movieSection.checkOut(movieTitle, user);
             view.displayMovieCheckOutStatus(movie);
         }
         else if (userChoice.equals("6")) {
-            view.outputConsole("Enter movie name: ");
+            view.outputConsole(MOVIE_PROMPT);
             String movie = view.getUserInput();
             view.displayCheckInMoviesStatus(movieSection.checkIn(movie, user));
         }
@@ -96,13 +97,12 @@ public class BibliotecaApp {
             view.displayCheckedMovies(movieSection.getCheckedOutMovies());
         }
         else if (userChoice.equals((indexOfMenuItem - 1) + "")) {
-
             view.displayUserProfile(user.toString());
         }
         else if (userChoice.equals(indexOfMenuItem + "")) {
             userLogin();
         }
         else
-            view.outputConsole("Select a valid option!");
+            view.outputConsole(INVALID_OPTION);
     }
 }

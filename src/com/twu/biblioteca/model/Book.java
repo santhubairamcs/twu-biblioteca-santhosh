@@ -51,4 +51,9 @@ public class Book {
     public boolean hasTitle(String bookTitle) {
         return bookTitle.equals(this.getTitle());
     }
+
+    @Override
+    public String toString() {
+        return String.format("%-25s%-25s%-25s", title, author, yearOfPublish);
+    }
 }

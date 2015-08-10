@@ -10,7 +10,7 @@ import java.io.InputStreamReader;
 import java.util.ArrayList;
 import java.util.HashMap;
 
-import static com.twu.biblioteca.Messages.*;
+import static com.twu.biblioteca.view.Messages.*;
 
 public class View {
 

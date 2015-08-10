@@ -7,7 +7,7 @@ import com.twu.biblioteca.model.Movie;
 import com.twu.biblioteca.model.MovieSection;
 import com.twu.biblioteca.view.View;
 
-import static com.twu.biblioteca.Messages.*;
+import static com.twu.biblioteca.view.Messages.*;
 
 public class BibliotecaApp {
     View view ;

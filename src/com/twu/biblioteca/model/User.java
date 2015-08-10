@@ -17,7 +17,6 @@ public class User {
         this.role = role;
     }
 
-
     public boolean authenticate(String libraryNumber, String password) {
         return (libraryNumber.equals(this.libraryNumber) && password.equals(this.password));
     }
@@ -34,18 +33,9 @@ public class User {
     @Override
     public boolean equals(Object that) {
         if (this == that) return true;
-        if (that == null || getClass() != that.getClass()) return false;
-
-        User user = (User) that;
-
-        if (name != null ? !name.equals(user.name) : user.name != null) return false;
-        if (email != null ? !email.equals(user.email) : user.email != null) return false;
-        if (password != null ? !password.equals(user.password) : user.password != null) return false;
-        if (libraryNumber != null ? !libraryNumber.equals(user.libraryNumber) : user.libraryNumber != null)
+        if (that == null || getClass() != that.getClass())
             return false;
-        if (phone != null ? !phone.equals(user.phone) : user.phone != null) return false;
-        return !(role != null ? !role.equals(user.role) : user.role != null);
-
+        return (this.hashCode() == that.hashCode());
     }
 
     @Override

@@ -20,14 +20,6 @@ public class Book {
         return title;
     }
 
-    public String getAuthor() {
-        return author;
-    }
-
-    public int getYearOfPublish() {
-        return yearOfPublish;
-    }
-
     public boolean isAvailable() {
         return available;
     }

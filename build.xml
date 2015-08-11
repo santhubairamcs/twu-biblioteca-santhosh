@@ -25,7 +25,6 @@
             <test name="com.twu.biblioteca.model.MovieTest"/>
             <test name="com.twu.biblioteca.model.LoginTest"/>
             <test name="com.twu.biblioteca.model.UserTest"/>
-            <test name="com.twu.biblioteca.model.IssueRegisterTest"/>
             <classpath>
                 <pathelement location="out"/>
                 <path refid="classpath"/>

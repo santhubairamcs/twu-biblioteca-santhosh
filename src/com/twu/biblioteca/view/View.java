@@ -14,18 +14,22 @@ import static com.twu.biblioteca.view.Messages.*;
 
 public class View {
 
+    private void print(String string) {
+        System.out.println(string);
+    }
+
     public void greetUser() {
-        System.out.println(WELCOME_MESSAGE);
+        print(WELCOME_MESSAGE);
     }
 
     public void listBooks(ArrayList<Book> books) {
         displayBookHeader();
         for (Book book : books)
-            System.out.println(book);
+            print(book.toString());
     }
 
     private void displayBookHeader() {
-        System.out.println(BOOK_HEADER);
+        print(BOOK_HEADER);
     }
 
     public String getUserInput() {
@@ -41,32 +45,32 @@ public class View {
     }
 
     public void outputConsole(String string) {
-        System.out.println(string);
+        print(string);
     }
 
     public void displayCheckOutStatus(Book book) {
         if (book != null)
-            System.out.println(BOOK_CHECKOUT_SUCCESSFUL);
+            print(BOOK_CHECKOUT_SUCCESSFUL);
         else
-            System.out.println(BOOK_CHECKOUT_UNSUCCESSFUL);
+            print(BOOK_CHECKOUT_UNSUCCESSFUL);
     }
 
     public void displayCheckInStatus(Book book) {
         if (book != null)
-            System.out.println(BOOK_CHECKIN_SUCCESSFUL);
+            print(BOOK_CHECKIN_SUCCESSFUL);
         else
-            System.out.println(BOOK_CHECKIN_UNSUCCESSFUL);
+            print(BOOK_CHECKIN_UNSUCCESSFUL);
     }
 
     public void displayMovieCheckOutStatus(Movie movie) {
         if (movie != null)
-            System.out.println(MOVIE_CHECKOUT_SUCCESSFUL);
+            print(MOVIE_CHECKOUT_SUCCESSFUL);
         else
-            System.out.println(MOVIE_CHECKOUT_UNSUCCESSFUL);
+            print(MOVIE_CHECKOUT_UNSUCCESSFUL);
     }
 
     public void displayCheckedMovies(HashMap<Movie, User> checkedOutBooks) {
-        System.out.println(CHECKOUT_MOVIE_HEADER);
+        print(CHECKOUT_MOVIE_HEADER);
         for (Movie movie : checkedOutBooks.keySet()) {
             System.out.format(CHECKOUT_MOVIE_FORMAT, movie.getTitle(), checkedOutBooks.get(movie));
         }
@@ -74,27 +78,27 @@ public class View {
 
     public void displayCheckInMoviesStatus(Movie movie) {
         if (movie != null)
-            System.out.println(MOVIE_CHECKIN_SUCCESSFUL);
+            print(MOVIE_CHECKIN_SUCCESSFUL);
         else
-            System.out.println(MOVIE_CHECKIN_UNSUCCESSFUL);
+            print(MOVIE_CHECKIN_UNSUCCESSFUL);
     }
 
     public void displayUserProfile(String userProfile) {
-        System.out.println(USER_DETAILS_HEADER);
-        System.out.println(userProfile);
+        print(USER_DETAILS_HEADER);
+        print(userProfile);
     }
 
     public void displayCheckedBooks(HashMap<Book, User> checkedOutBooks) {
-        System.out.println(CHECKOUT_BOOK_HEADER);
+        print(CHECKOUT_BOOK_HEADER);
         for (Book book : checkedOutBooks.keySet()) {
             System.out.format("%-25s%-75s\n", book.getTitle(), checkedOutBooks.get(book));
         }
     }
 
     public void displayMoviesList(ArrayList<Movie> movies) {
-        System.out.println(MOVIE_HEADER);
+        print(MOVIE_HEADER);
         for (Movie movie : movies) {
-            System.out.println(movie);
+            print(movie.toString());
         }
     }
 
